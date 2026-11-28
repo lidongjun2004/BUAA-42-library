@@ -1,0 +1,5 @@
+WARNING:HDLCompiler:1300 - "E:\.main\CO\P5\CPU\BuildALU.v" Line 50: Non-module variable i cannot be initialized at declaration
+WARNING:HDLCompiler:1300 - "E:\.main\CO\P5\CPU\BuildALU.v" Line 51: Non-module variable sum cannot be initialized at declaration
+Error: Unable to access jarfile Mars.jar
+Error: Unable to access jarfile Mars.jar
+Error: Unable to access jarfile Mars.jar

@@ -1,0 +1,2 @@
+Total Cases: 1, Right Cases: 1
+Testcase  0: Accepted

@@ -1,0 +1,26 @@
+{
+  "Id": 1048,
+  "Name": "P5_L4_addei_2022",
+  "Description": "# Add Extended Immediate 不支持溢出的有符号加高位 1 扩展立即数\n\n<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">\n                31\n            </span>\n            <span style=\"float: right;\">\n                26\n            </span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">\n                25\n            </span>\n            <span style=\"float: right;\">\n                21\n            </span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">\n                20\n            </span>\n            <span style=\"float: right;\">\n                16\n            </span>\n        </td>\n        <td id=\"td-imm-top\">\n            <span style=\"float: left;\">\n                15\n            </span>\n            <span style=\"float: right;\">\n                0\n            </span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            addei\n            <br />\n            110011\n        </td>\n        <td id=\"td-rs\">\n            rs\n        </td>\n        <td id=\"td-rt\">\n            rt\n        </td>\n        <td id=\"td-imm\">\n            offset\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-imm-bottom\">\n            16\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                addei rt, rs, offset\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                对立即数进行高位 1 扩展，并与 GPR[rs] 相加，如果未溢出，则将相加得到的结果写入 GPR[rt]；如果发生了溢出，则将高位 1 扩展后的立即数写入 GPR[rt]\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                temp ←  (one_extend(offset)<sub>31</sub> || one_extend(offset)<sub>31...0</sub>) + (GPR[rs]<sub>31</sub>\n                || GPR[rs]<sub>31...0</sub>)\n            </p>\n            <p id=\"p-code\">\n                if temp<sub>32</sub> != temp<sub>31</sub>\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                GPR[rt] ← one_extend(offset)\n            </p>\n            <p id=\"p-code\">\n                else\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                GPR[rt] ← temp\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                addei $t0, $t1, 1\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "addei.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

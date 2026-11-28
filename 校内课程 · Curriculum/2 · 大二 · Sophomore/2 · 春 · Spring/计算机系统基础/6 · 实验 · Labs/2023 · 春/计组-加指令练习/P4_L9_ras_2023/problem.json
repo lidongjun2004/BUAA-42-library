@@ -1,0 +1,26 @@
+{
+  "Id": 1187,
+  "Name": "P4_L9_ras_2023",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">31</span>\n            <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">25</span>\n            <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">20</span>\n            <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-imm-top\">\n            <span style=\"float: left;\">15</span>\n            <span style=\"float: right;\">0</span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            RAS<br />\n            111111\n        </td>\n        <td id=\"td-rs\">rs</td>\n        <td id=\"td-rt\">rt</td>\n        <td id=\"td-imm\">\n            immediate\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-imm-bottom\">\n            16\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                ras rt, rs, immediate\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-text\">\n                将 GPR[rs] <b>高</b> immediate 位按位取反后，再<b>算术右移</b>二进制表示下 immediate 含 1 的数量的位数，最后存入 GPR[rt] 中。(immediate 为 0 时直接将 GPR[rs] 的值存入 GPR[rt] 中，immediate 大于等于 32 时，将 GPR[rs] 的 32 位全部取反后再进行移位操作)\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">def:</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">bitwise_not(x): 将 x 按位取反</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">popcount(x): x 在二进制表示下含 1 的数量</p>\n            <p id=\"p-code\">if immediate = 0</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">GPR[rt] ← GPR[rs]</p>\n            <p id=\"p-code\">else if immediate < 32</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">temp ← bitwise_not(GPR[rs]<sub>31...32-immediate</sub>) || GPR[rs]<sub>31-immediate...0</sub></p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">s ← popcount(immediate)</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">GPR[rt] ← temp<sub>31</sub><sup>s</sup> || temp<sub>31...s</sub></p>\n            <p id=\"p-code\">else</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">temp ← bitwise_not(GPR[rs]<sub>31...0</sub>)</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">s ← popcount(immediate)</p>\n            <p id=\"p-code\" style=\"text-indent: 1em\">GPR[rt] ← temp<sub>31</sub><sup>s</sup> || temp<sub>31...s</sub></p>\n            <p id=\"p-code\">endif</p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                ras $t0, $t1, 1\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            其他\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-text\">\n                指令表现以 .class 指令扩展在 MARS 中的行为为准\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "ras.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

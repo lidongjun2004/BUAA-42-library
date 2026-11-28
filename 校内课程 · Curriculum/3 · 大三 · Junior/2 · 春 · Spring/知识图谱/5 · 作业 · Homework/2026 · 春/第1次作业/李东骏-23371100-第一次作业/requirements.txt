@@ -1,0 +1,5 @@
+# 第一次作业 (BiLSTM-CRF NER) 依赖
+# 安装: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+torch==2.12.0
+numpy==2.4.6
+seqeval==1.2.2

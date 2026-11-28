@@ -1,0 +1,132 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='http//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery.min.js"></script>
+<!---start-login-script--->
+		<script src="js/login.js"></script>
+		<!---//End-login-script--->
+		<!-----768px-menu----->
+		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+		<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+			<script type="text/javascript">
+				//	The menu on the left
+				$(function() {
+					$('nav#menu-left').mmenu();
+				});
+		</script>
+		<!-----//768px-menu----->
+</head>
+<body>
+	<div class="content">
+	<!------start-768px-menu---->
+			<div id="page">
+					<div id="header">
+						<a class="navicon" href="#menu-left"> </a>
+					</div>
+					<nav id="menu-left">
+						<ul>
+							<li class="active"><a href="index.html">Home</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</nav>
+			</div>
+		<!------end-768px-menu---->
+			<!---start-header---->
+			<div class="header">
+		   <!---start-wrap---->
+				<div class="header">
+				<div class="header-left">
+					<div class="logo">
+						<a href="index.html"></a>
+					</div>
+				</div>
+				<div class="header-right">
+					<div class="top-nav">
+					<ul>
+						<li class="active"><a href="index.html">主页</a></li>
+					</ul>
+				</div>
+				
+				<div class="sign-ligin-btns">
+					<ul>
+						
+						<li id="loginContainer"><a class="login" id="loginButton" href="#"><span>登录</span></a>
+							 <div class="clear"> </div>
+				                <div id="loginBox">                
+				                    <form id="loginForm">
+				                        <fieldset id="body">
+				                            <fieldset>
+				                                <label for="email">邮箱地址</label>
+				                                <input type="text" name="email" id="email" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">密码</label>
+				                                <input type="password" name="password" id="password" />
+				                            </fieldset>
+				                            <label class="remeber" for="checkbox"><input type="checkbox" id="checkbox" />记住我</label>
+				                            <input type="submit" id="login" value="登录" />
+				                        </fieldset>
+				                        <span><a href="#">忘记密码？</a></span>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<li id="signupContainer"><a class="signup" id="signupButton" href="#"><span>注册</span></a>
+							 <div class="clear"> </div>
+				                <div id="signupBox">                
+				                    <form id="signupForm">
+				                        <fieldset id="signupbody">
+				                            <fieldset>
+				                                <label for="email">邮箱地址<span>*</span></label>
+				                                <input type="text" name="email" id="signupemail" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">选择密码<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword" />
+				                            </fieldset>
+				                             <fieldset>
+				                                <label for="password">确认密码<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword1" />
+				                            </fieldset>
+				                            <input type="submit" id="signup" value="现在注册！" />
+				                        </fieldset>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="main">
+				<div class="wrap">
+				<div class="main_left">
+					<h2>健康数据分析与建议</h2>
+					<p>请输入您的相关身体数据，我们将根据身体数据计算一些相关健康指标，并据此提供一些生活方面的建议，包括饮食与运动。请您放心，这不会泄露您的隐私。</p>		
+					<div class="buttons">
+						<div class="sign_up">
+							<a href="details.html" class="arrow_btn">开始测试</a>
+						</div>
+							<div class="clear"> </div>
+					</div>
+				</div>
+			<div class="main_right">
+						<span> </span>
+			</div>
+			<div class="clear"> </div>
+			<!---//End-header---->
+			</div>
+		</div>
+	</div>
+<div style="display:none"><script src='http//v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+ISim log file
+Running: E:\.main\CO\P5\CPU\mips_tb_isim_beh.exe -log log.txt -tclbatch test.tcl 
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+# run 1us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                  13@00003004: $ 6 <= 00000000
+                  15@00003028: $24 <= 00000000
+                  17@0000302c: $26 <= 00000000
+                  19@00003030: $31 <= 00003038
+                  21@00003034: $21 <= 00000002
+                  23@004000b0: $11 <= 00070000
+                  25@004000b4: $ 7 <= 00000000
+                  27@004000b8: $ 7 <= 00510000
+                  29@004000bc: $22 <= 00000000
+                  31@004000c0: $ 4 <= 00000000
+                  33@004000c4: $23 <= 00000000
+# exit

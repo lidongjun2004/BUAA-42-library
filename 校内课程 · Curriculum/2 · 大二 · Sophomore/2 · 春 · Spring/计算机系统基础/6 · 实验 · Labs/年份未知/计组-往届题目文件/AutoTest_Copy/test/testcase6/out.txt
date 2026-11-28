@@ -1,0 +1,9 @@
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+TCL batch file "E:\.main\CO\AutoTest - ¸±±¾\test.tcl" encountered an error in line 1. Simulator is exiting.

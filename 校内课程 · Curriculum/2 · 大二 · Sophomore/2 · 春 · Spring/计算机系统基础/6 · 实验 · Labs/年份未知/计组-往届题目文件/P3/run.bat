@@ -1,0 +1,1 @@
+java -jar logisim-filename.jar CPU.circ -tty table

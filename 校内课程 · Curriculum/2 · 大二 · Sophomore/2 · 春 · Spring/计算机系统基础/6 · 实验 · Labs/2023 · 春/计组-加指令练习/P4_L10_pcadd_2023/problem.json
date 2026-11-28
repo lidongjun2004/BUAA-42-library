@@ -1,0 +1,26 @@
+{
+  "Id": 1182,
+  "Name": "P4_L10_pcadd_2023",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">31</span>\n            <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">25</span>\n            <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">20</span>\n            <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-rd-top\">\n            <span style=\"float: left;\">15</span>\n            <span style=\"float: right;\">11</span>\n        </td>\n        <td id=\"td-shamt-top\">\n            <span style=\"float: left;\">10</span>\n            <span style=\"float: right;\">6</span>\n        </td>\n        <td id=\"td-func-top\">\n            <span style=\"float: left;\">5</span>\n            <span style=\"float: right;\">0</span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            SPECIAL<br />\n            000000\n        </td>\n        <td id=\"td-rs\">rs\n        <td id=\"td-rt\">\n            0<br />\n            00000\n        </td>\n        <td id=\"td-rd\">\n            rd\n        </td>\n        <td id=\"td-shamt\">\n            0<br />\n            00000\n        </td>\n        <td id=\"td-func\">\n            PCADD<br />110001\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-rd-bottom\">\n            5\n        </td>\n        <td id=\"td-shamt-bottom\">\n            5\n        </td>\n        <td id=\"td-func-bottom\">\n            6\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                pcadd rd, rs\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">将 GPR[rs] 和 PC 的值相加的结果存入 GPR[rd]</p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">GPR[rd] ← GPR[rs] + PC</p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                pcadd $t0, $t1\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            其他\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-text\">\n                指令表现以 .class 指令扩展在 MARS 中的行为为准\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "pcadd.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

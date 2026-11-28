@@ -1,0 +1,285 @@
+import cv2
+import time
+import torch
+import torch.nn.functional as F
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+import os
+import math
+import matplotlib
+font = {
+    'family': 'Microsoft YaHei',
+    'weight': 'bold'
+}
+matplotlib.rc("font", **font)
+# ================= 配置参数 =================
+img_location = "images\lenna.bmp"  # 图片位置
+padding = 1
+stride = 1
+# ================= 卷积核定义 =================
+# 边缘检测核
+sobel_x = np.array([[1, 0, -1], 
+                   [2, 0, -2], 
+                   [1, 0, -1]], dtype=np.float32)
+
+sobel_y = np.array([[1, 2, 1],
+                   [0, 0, 0],
+                   [-1, -2, -1]], dtype=np.float32)
+
+# 模糊核（3x3均值滤波）
+blur_kernel = np.ones((3, 3)) / 9.0
+
+# 锐化核
+sharpen_kernel = np.array([[0, -1, 0],
+                          [-1, 5, -1],
+                          [0, -1, 0]])
+
+# Gabor参数配置
+gabor_params = {
+    'ksize': 5,
+    'sigma': 2.0,
+    'lambd': 5.0,
+    'gamma': 0.5,
+    'angles': [0, math.pi/4, math.pi/2, 3*math.pi/4]
+}
+
+# ================= 函数定义 =================
+def generate_gabor_kernel(ksize=5, sigma=1.0, theta=0, lambd=10.0, gamma=0.5):
+    kernel = np.zeros((ksize, ksize))
+    center = ksize // 2
+    
+    for x in range(ksize):
+        for y in range(ksize):
+            x_hat = x - center
+            y_hat = y - center
+            x_theta = x_hat * math.cos(theta) + y_hat * math.sin(theta)
+            y_theta = -x_hat * math.sin(theta) + y_hat * math.cos(theta)
+            gaussian = math.exp(-(x_theta**2 + gamma**2 * y_theta**2)/(2*sigma**2))
+            cosine = math.cos(2 * math.pi * x_theta / lambd)
+            kernel[x, y] = gaussian * cosine
+    kernel = kernel - np.mean(kernel)
+    return kernel / np.abs(kernel).sum()
+
+def read_image_pixels(image_path):
+    try:
+        img = Image.open(image_path).convert('RGBA')
+        width, height = img.size
+        data = np.array(img.getdata(), dtype=np.float64) / 255.0
+        return data.reshape((height, width, 4)), height, width, 'rgba'
+    except Exception as e:
+        print(f"读取图像失败: {str(e)}")
+        return None, None, None, None
+
+def load_rgb_image_from_pixels(pixels):
+    return pixels[:, :, :3].transpose((2, 0, 1))  # (C, H, W)
+
+def conv2d_multi_channel_rgb(input_img, kernel, padding, stride):
+    C, H, W = input_img.shape
+    kC, kH, kW = kernel.shape
+    assert C == kC, "通道数不匹配"
+
+    if padding > 0:
+        input_padded = np.pad(input_img, 
+                            ((0, 0), (padding, padding), (padding, padding)),
+                            mode='constant')
+    else:
+        input_padded = input_img
+
+    out_H = (input_padded.shape[1] - kH) // stride + 1
+    out_W = (input_padded.shape[2] - kW) // stride + 1
+    output = np.zeros((C, out_H, out_W))  # (C, H, W)
+
+    for c in range(C):
+        for i in range(out_H):
+            for j in range(out_W):
+                region = input_padded[c, i*stride:i*stride+kH, j*stride:j*stride+kW]
+                output[c, i, j] = np.sum(region * kernel[c])
+    return output
+
+def display_color_results(results, titles, rows, cols, figsize=(15, 10)):
+    plt.figure(figsize=figsize)
+    for i, (result, title) in enumerate(zip(results, titles)):
+        plt.subplot(rows, cols, i+1)
+        if result.ndim == 2:
+            plt.imshow(result, cmap='gray')
+        else:
+            # 确保形状为 (H, W, C)
+            plt.imshow(np.clip(result, 0, 1))  # 添加clip防止溢出
+        plt.title(title)
+        plt.axis('off')
+    plt.tight_layout()
+    plt.show()
+
+
+def official_pytorch_conv2d(input_img, kernel, padding, stride):
+    """PyTorch实现（支持GPU）"""
+    # 转换为Tensor (C, H, W) -> (1, C, H, W)
+    input_tensor = torch.from_numpy(input_img).unsqueeze(0).float()
+    # 调整卷积核维度为 (C_out, C_in/groups, H, W)
+    kernel_tensor = torch.from_numpy(kernel).float().unsqueeze(1)  # 新增unsqueeze
+    
+    # 卷积操作
+    if torch.cuda.is_available():
+        input_tensor = input_tensor.cuda()
+        kernel_tensor = kernel_tensor.cuda()
+    
+    output = F.conv2d(
+        input_tensor, kernel_tensor,
+        stride=(stride, stride), 
+        padding=padding,
+        groups=input_img.shape[0]  # 分组卷积
+    )
+    return output.squeeze(0).cpu().numpy(), None
+def print_performance_report(reports):
+    """打印性能对比报告"""
+    print("\n========== 性能对比报告 ==========")
+    print("{:<10} | {:<10} | {:<10} | {:<10}".format(
+        "操作类型", "自定义耗时", "PyTorch耗时", "加速比"))
+    print("-" * 45)
+    for report in reports:
+        if isinstance(report['pytorch_time'], str):  # 处理无效数据
+            continue
+        speedup = report['custom_time'] / report['pytorch_time']
+        print("{:<10} | {:<10.4f}s | {:<10.4f}s | {:<10.2f}x".format(
+            report['operation'],
+            report['custom_time'],
+            report['pytorch_time'],
+            speedup
+        ))
+def compare_operations(operation_name, input_img, kernel_custom):
+    """三方性能对比"""
+    # ---- 自定义实现 ----
+    # 预热运行
+    _ = conv2d_multi_channel_rgb(input_img, kernel_custom, padding, stride)
+    
+    # 正式计时
+    custom_times = []
+    for _ in range(10):  # 多次运行取平均值
+        start_time = time.perf_counter()
+        custom_result = conv2d_multi_channel_rgb(input_img, kernel_custom, padding, stride)
+        custom_times.append(time.perf_counter() - start_time)
+    avg_custom_time = np.mean(custom_times)
+
+    # ---- PyTorch实现 ----
+    # 预热运行
+    _ = official_pytorch_conv2d(input_img, kernel_custom, padding, stride)[0]
+    
+    pytorch_times = []
+    for _ in range(10):
+        start_time = time.perf_counter()
+        pytorch_result = official_pytorch_conv2d(input_img, kernel_custom, padding, stride)[0]
+        pytorch_times.append(time.perf_counter() - start_time)
+    avg_pytorch_time = np.mean(pytorch_times)
+
+    # ---- 结果对比 ----
+    metrics = {
+        'torch_mse': np.mean((custom_result - pytorch_result)**2)
+    }
+
+    return {
+        'operation': operation_name,
+        'custom_time': round(avg_custom_time, 4),
+        'pytorch_time': round(avg_pytorch_time, 4),
+        'metrics': metrics,
+        'custom_result': custom_result,
+        'pytorch_result': pytorch_result
+    }
+# ================= 修改主程序 =================
+if __name__ == "__main__":
+    # ... [原有代码] ...
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(current_dir, img_location)
+    if not os.path.exists(image_path):
+        raise FileNotFoundError(f"图像路径 {image_path} 不存在！")
+    
+    pixels, h, w, _ = read_image_pixels(image_path)
+    if pixels is None:
+        exit()
+    
+    # 预处理
+    img_rgb = load_rgb_image_from_pixels(pixels)  # (C, H, W) = (3, H, W)
+    original_rgb = pixels[:, :, :3]               # (H, W, C) = (H, W, 3)
+
+    # ================= 特征计算 =================
+    # RGB通道分离（单通道灰度）
+    rgb_channels = [original_rgb[:, :, i] for i in range(3)]
+    
+    # 模糊处理（彩色）
+    blur_kernel_multi = np.stack([blur_kernel]*3, axis=0)
+    blur_result = conv2d_multi_channel_rgb(img_rgb, blur_kernel_multi, padding, stride)
+    
+    # 锐化处理（彩色）
+    sharpen_kernel_multi = np.stack([sharpen_kernel]*3, axis=0)
+    sharpen_result = conv2d_multi_channel_rgb(img_rgb, sharpen_kernel_multi, padding, stride)
+    
+    # 边缘检测
+    edge_x = np.sum(conv2d_multi_channel_rgb(img_rgb, np.stack([sobel_x]*3, axis=0), padding, stride), axis=0)
+    edge_y = np.sum(conv2d_multi_channel_rgb(img_rgb, np.stack([sobel_y]*3, axis=0), padding, stride), axis=0)
+    edge_combined = np.sqrt(edge_x**2 + edge_y**2)
+    
+    # 纹理检测
+    texture_maps = []
+    for theta in gabor_params['angles']:
+        kernel = generate_gabor_kernel(
+            gabor_params['ksize'],
+            gabor_params['sigma'],
+            theta,
+            gabor_params['lambd'],
+            gabor_params['gamma']
+        )
+        texture_map = np.sum(conv2d_multi_channel_rgb(
+            img_rgb,
+            np.stack([kernel]*3, axis=0),
+            padding,
+            stride
+        ), axis=0)
+        texture_maps.append(texture_map)
+    texture_combined = np.mean(texture_maps, axis=0)
+
+    # ================= 性能对比 =================
+    # 模糊处理对比
+    blur_report = compare_operations("模糊处理", img_rgb, blur_kernel_multi)
+    blur_custom = blur_report['custom_result']
+    blur_pytorch = blur_report['pytorch_result']
+    
+    # 锐化处理对比
+    sharpen_report = compare_operations("锐化处理", img_rgb, sharpen_kernel_multi)
+    sharpen_custom = sharpen_report['custom_result']
+    sharpen_pytorch = sharpen_report['pytorch_result']
+    reports = []
+    
+    # 模糊处理对比
+    blur_report = compare_operations("模糊处理", img_rgb, blur_kernel_multi)
+    reports.append(blur_report)
+    
+    # 锐化处理对比
+    sharpen_report = compare_operations("锐化处理", img_rgb, sharpen_kernel_multi)
+    reports.append(sharpen_report)
+    
+    # 边缘检测对比
+    edge_report = compare_operations("边缘检测", img_rgb, np.stack([sobel_x]*3, axis=0))
+    reports.append(edge_report)
+
+    # 打印性能报告
+    print_performance_report(reports)
+
+    # ================= 可视化对比 =================
+    if stride == 1:
+        display_color_results(
+            [
+                blur_custom.transpose(1,2,0),
+                blur_pytorch.transpose(1,2,0)
+            ],
+            ['自定义模糊',  'PyTorch模糊'],
+            1, 3, figsize=(15, 5)
+        )
+    if stride == 1:
+        display_color_results(
+            [
+                sharpen_custom.transpose(1,2,0),
+                sharpen_pytorch.transpose(1,2,0)
+            ],
+            ['自定义锐化', 'PyTorch锐化'],
+            1, 3, figsize=(15, 5)
+        )

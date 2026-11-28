@@ -1,0 +1,27 @@
+// college 资料库的 markdownlint 配置
+// MD013（行长度）关闭：中文正文和 LaTeX 公式按 80 列折行会破坏可读性和公式
+// MD024 只检查同级重复：不同大题下都有「1」「2」小题是正常的
+// MD033 允许下列行内 HTML：
+//   lark-* / td / tr / table / p / span / div / font / center / br / img / sup / sub / equation
+//     —— 飞书与课件导出正文里的表格、强调、上下标与行内公式，改写会破坏原文排版；
+//   h1 / h2 / h3 / h5 / head / body / li / video / audio / strong / b / em
+//     —— 课件在正文里讲解 HTML 标签本身，或报告用 HTML 居中标题；
+//   class —— RDF 三元组写作 ?x rdf:type <class>，是知识表示内容而非 HTML 元素。
+{
+  "default": true,
+  "MD013": false,
+  "MD024": { "siblings_only": true },
+  "MD033": {
+    "allowed_elements": [
+      "lark-table", "lark-tr", "lark-td",
+      "table", "tr", "td",
+      "p", "span", "div", "font", "center", "br", "img",
+      "sup", "sub", "equation",
+      "h1", "h2", "h3", "h5",
+      "head", "body", "li",
+      "video", "audio",
+      "strong", "b", "em",
+      "class"
+    ]
+  }
+}

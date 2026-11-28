@@ -1,0 +1,144 @@
+import numpy as np
+from PIL import Image
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+from OpenGL.GL import shaders
+
+import glm  # pip install PyGLM
+
+VERTEX_SHADER = """
+#version 430
+layout(location = 0) in vec4 position;
+layout(location = 1) in vec2 texcoord;
+uniform mat4 MVP;
+
+out vec2 vt_texcoord;
+void main() {
+    gl_Position = MVP * position;
+    vt_texcoord = texcoord;
+}
+"""
+
+FRAGMENT_SHADER = """
+#version 430
+in vec2 vt_texcoord;
+uniform sampler2D tex0;
+
+out vec4 fragColor;
+void main() {
+    fragColor = texture(tex0, vt_texcoord);
+}
+"""
+
+shaderProgram = None
+VAO = None
+tex = None
+
+
+def quad():
+    positions, texcoords = [], []
+
+    positions.append([-100.0, 100.0, 0.0, 1.0])
+    texcoords.append([0, 0.0])
+    positions.append([100.0, 100.0, 0.0, 1.0])
+    texcoords.append([10.0, 0.0])
+    positions.append([100.0, -100.0, 0.0, 1.0])
+    texcoords.append([10.0, 10.0])
+    positions.append([-100.0, -100.0, 0.0, 1.0])
+    texcoords.append([0, 10.0])
+
+    positions = np.array(positions, np.float32)
+    texcoords = np.array(texcoords, np.float32)
+
+    return positions, texcoords
+
+
+def initialize():
+    global shaderProgram, VAO, tex
+
+    vertexshader = shaders.compileShader(VERTEX_SHADER, GL_VERTEX_SHADER)
+    fragmentshader = shaders.compileShader(FRAGMENT_SHADER, GL_FRAGMENT_SHADER)
+    shaderProgram = shaders.compileProgram(vertexshader, fragmentshader)
+
+    points, texcoords = quad()
+
+    VAO = glGenVertexArrays(1)
+    glBindVertexArray(VAO)
+
+    VBO = glGenBuffers(1)
+    glBindBuffer(GL_ARRAY_BUFFER, VBO)
+    glBufferData(GL_ARRAY_BUFFER, points.nbytes + texcoords.nbytes, None, GL_STATIC_DRAW)
+    glBufferSubData(GL_ARRAY_BUFFER, 0, points.nbytes, points)
+    glBufferSubData(GL_ARRAY_BUFFER, points.nbytes, texcoords.nbytes, texcoords)
+
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 16, None)
+    glEnableVertexAttribArray(0)
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8, ctypes.c_void_p(points.nbytes))
+    glEnableVertexAttribArray(1)
+
+    tex = glGenTextures(1)
+    img = np.array(Image.open("chessboard.jpg").convert("RGB"))
+    glBindTexture(GL_TEXTURE_2D, tex)
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img.shape[1], img.shape[0], 0, GL_RGB, GL_UNSIGNED_BYTE, img)
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
+
+    glGenerateMipmap(GL_TEXTURE_2D) 
+
+
+def calc_mvp(width, height):
+    proj = glm.perspective(glm.radians(60.0), float(width) / float(height), 1, 500.0)
+    view = glm.lookAt(glm.vec3(0.0, 10.0, 100.0), glm.vec3(0, 0, 0), glm.vec3(0, 1, 0))
+
+    model = glm.mat4(1.0)
+    model = glm.rotate(model, glm.radians(90), glm.vec3(1, 0, 0))
+
+    return proj * view * model
+
+
+def render():
+    global shaderProgram, VAO, tex
+
+    glClearColor(0, 0, 0, 1)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+    glEnable(GL_DEPTH_TEST)
+    glEnable(GL_MULTISAMPLE)
+
+    glUseProgram(shaderProgram)
+
+    # 设置 MVP 矩阵
+    mvp_loc = glGetUniformLocation(shaderProgram, "MVP")
+    mvp_mat = calc_mvp(640, 480)
+    glUniformMatrix4fv(mvp_loc, 1, GL_FALSE, glm.value_ptr(mvp_mat))
+
+    # 绑定纹理
+    glActiveTexture(GL_TEXTURE0)
+    glUniform1i(glGetUniformLocation(shaderProgram, "tex0"), 0)
+
+    glBindVertexArray(VAO)
+    glDrawArrays(GL_QUADS, 0, 4)
+
+    glUseProgram(0)
+
+    glutSwapBuffers()
+
+
+def main():
+    glutInit([])
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
+    glutInitWindowSize(640, 480)
+    glutCreateWindow(b"Texture Antialiasing with Repeating Coordinates")
+    initialize()
+    glutDisplayFunc(render)
+    glutMainLoop()
+
+
+if __name__ == "__main__":
+    main()

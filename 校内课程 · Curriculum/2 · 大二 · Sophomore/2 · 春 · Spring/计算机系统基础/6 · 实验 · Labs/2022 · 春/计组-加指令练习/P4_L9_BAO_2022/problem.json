@@ -1,0 +1,26 @@
+{
+  "Id": 990,
+  "Name": "P4_L9_BAO_2022",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n      <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n                编码\n            </td>\n        <td id=\"td-opcode-top\">\n          <span style=\"float: left;\">31</span>\n          <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n          <span style=\"float: left;\">25</span>\n          <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n          <span style=\"float: left;\">20</span>\n          <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-imm-top\">\n          <span style=\"float: left;\">15</span>\n          <span style=\"float: right;\">0</span>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode\">\n                bao<br/>\n                101101\n            </td>\n        <td id=\"td-rs\">rs</td>\n        <td id=\"td-rt\">\n                rt\n            </td>\n        <td id=\"td-imm\">\n                offset\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode-bottom\">\n                6\n            </td>\n        <td id=\"td-rs-bottom\">\n                5\n            </td>\n        <td id=\"td-rt-bottom\">\n                5\n            </td>\n        <td id=\"td-imm-bottom\">\n                16\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                格式\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">\n                    bao rs, rt, offset\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                描述\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-text\">\n                    如果GPR[rs]和GPR[rt]相加之后会溢出（溢出的判断参考add指令），则分支\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                操作\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">temp ← (GPR[rs]<sub>31</sub> || GPR[rs]) + (GPR[rt]<sub>31</sub> || GPR[rt])</p>\n          <p id=\"p-code\">if temp<sub>32</sub> ≠ temp<sub>31</sub> then</p>\n          <p id=\"p-code\" style=\"text-indent: 2em\">PC ← PC + 4 + sign_extend(offset || 0<sup>2</sup>)</p>\n          <p id=\"p-code\">else</p>\n          <p id=\"p-code\" style=\"text-indent: 2em\">PC ← PC + 4</p>\n          <p id=\"p-code\">endif</p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                示例\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">\n                    bao $t1, $t2, label\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                其他\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-text\">\n                  temp<sub>32</sub> ≠ temp<sub>31</sub>代表计算结果溢出。\n                </p>\n        </td>\n      </tr>\n    </table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "bao.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

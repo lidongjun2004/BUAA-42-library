@@ -1,0 +1,7 @@
+#C NOT gate: gun A (top-left, SE stream) is the signal; gun B (bottom-left, NE stream) is the input.
+#C Input gliders annihilate signal gliders at the crossing, so output (right side) = NOT input.
+x = 36, y = 138, rule = B3/S23
+24bo$22bobo$12b2o6b2o12b2o$11bo3bo4b2o12b2o$2o8bo5bo3b2o$2o8bo3bob2o4b
+obo$10bo5bo7bo$11bo3bo$12b2o94$12b2o$12b2o10$10b2o3b2o2$11bo3bo$12b3o$
+12b3o3$15bo$14b3o$13bo3bo$15bo$12bo5bo$12bo5bo$13bo3bo$14b3o9$14b2o$
+14b2o!

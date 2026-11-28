@@ -1,0 +1,26 @@
+{
+  "Id": 985,
+  "Name": "P4_L4_SSZE_2022",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n      <td id=\"td-head\" rowspan=\"3\">\n                编码\n            </td>\n      <td id=\"td-opcode-top\">\n        <span style=\"float: left;\">31</span>\n        <span style=\"float: right;\">26</span>\n      </td>\n      <td id=\"td-rs-top\">\n        <span style=\"float: left;\">25</span>\n        <span style=\"float: right;\">21</span>\n      </td>\n      <td id=\"td-rt-top\">\n        <span style=\"float: left;\">20</span>\n        <span style=\"float: right;\">16</span>\n      </td>\n      <td id=\"td-rd-top\">\n        <span style=\"float: left;\">15</span>\n        <span style=\"float: right;\">11</span>\n      </td>\n      <td id=\"td-shamt-top\">\n        <span style=\"float: left;\">10</span>\n        <span style=\"float: right;\">6</span>\n      </td>\n      <td id=\"td-func-top\">\n        <span style=\"float: left;\">5</span>\n        <span style=\"float: right;\">0</span>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-opcode\">\n                SPECIAL<br/>\n                000000\n            </td>\n      <td id=\"td-rs\">rs</td>\n      <td id=\"td-rt\">\n                rt\n            </td>\n      <td id=\"td-rd\">\n                rd\n            </td>\n      <td id=\"td-shamt\">\n                0<br/>\n                00000\n            </td>\n      <td id=\"td-func\">\n                SSZE<br/>\n                001111\n            </td>\n    </tr>\n    <tr>\n      <td id=\"td-opcode-bottom\">\n                6\n            </td>\n      <td id=\"td-rs-bottom\">\n                5\n            </td>\n      <td id=\"td-rt-bottom\">\n                5\n            </td>\n      <td id=\"td-rd-bottom\">\n                5\n            </td>\n      <td id=\"td-shamt-bottom\">\n                5\n            </td>\n      <td id=\"td-func-bottom\">\n                6\n            </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                格式\n            </td>\n      <td colspan=\"6\">\n        <p id=\"p-code\">\n                    ssze rd, rs, rt\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                描述\n            </td>\n      <td colspan=\"6\">\n        <p id=\"p-code\">\n                    当GPR[rs]和GPR[rt]二进制后缀0的个数相同时，将GPR[rd]置1，否则置0。\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                操作\n            </td>\n      <td colspan=\"6\">\n        <p id=\"p-code\">def:\n          \t\t</p>\n        <p id=\"p-code\" style=\"text-indent: 4em\">\n            \t\tcount_suffix_zeros(x): 返回x后缀0的个数\n          \t\t</p>\n        <p id=\"p-code\">\n                    temp1 &nbsp; ← &nbsp; count_suffix_zeros(GPR[rs])\n                </p>\n        <p id=\"p-code\">\n                    temp2 &nbsp; ← &nbsp; count_suffix_zeros(GPR[rt])\n                </p>\n        <p id=\"p-code\">\n            GPR[rd] &nbsp; ← &nbsp; (temp1 = temp2) &nbsp; ? &nbsp; 0<sup>31</sup>||1  &nbsp; : &nbsp; 0<sup>32</sup>\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                示例\n            </td>\n      <td colspan=\"6\">\n        <p id=\"p-code\">\n                    ssze $t0, $t1, $t2\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                其他\n            </td>\n      <td colspan=\"6\">\n        <p id=\"p-text\">\n                    无\n                </p>\n      </td>\n    </tr>\n  </table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "ssze.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

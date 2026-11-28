@@ -1,0 +1,26 @@
+{
+  "Id": 986,
+  "Name": "P4_L5_BNEZALC_2022",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n      <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n                编码\n            </td>\n        <td id=\"td-opcode-top\">\n          <span style=\"float: left;\">31</span>\n          <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n          <span style=\"float: left;\">25</span>\n          <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n          <span style=\"float: left;\">20</span>\n          <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-imm-top\">\n          <span style=\"float: left;\">15</span>\n          <span style=\"float: right;\">0</span>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode\">\n                regimm<br/>\n                000001\n            </td>\n        <td id=\"td-rs\">rs</td>\n        <td id=\"td-rt\">\n                BNEZALC<br/>\n                10011\n            </td>\n        <td id=\"td-imm\">\n                offset\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode-bottom\">\n                6\n            </td>\n        <td id=\"td-rs-bottom\">\n                5\n            </td>\n        <td id=\"td-rt-bottom\">\n                5\n            </td>\n        <td id=\"td-imm-bottom\">\n                16\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                格式\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">\n                    bnezalc rs, offset\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                描述\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-text\">\n                    如果 GPR[rs]不等于0，则跳转到 label，并将 PC + 4 存入 31 号寄存器。\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                操作\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">if (GPR[rs] ≠ 0) then</p>\n          <p id=\"p-code\" style=\"text-indent: 4em\">PC &nbsp; ← &nbsp; PC + 4 + sign_extend(offset||0<sup>2</sup>)</p>\n          <p id=\"p-code\" style=\"text-indent: 4em\">GPR[31] &nbsp; ← &nbsp; PC + 4</p>\n          <p id=\"p-code\">else</p>\n          <p id=\"p-code\" style=\"text-indent: 4em\">PC &nbsp; ← &nbsp; PC + 4</p>\n          <p id=\"p-code\">endif</p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                示例\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-code\">\n                    bnezalc $t0, label\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                其他\n            </td>\n        <td colspan=\"4\">\n          <p id=\"p-text\">\n                  不考虑延迟槽<br/>\n                </p>\n        </td>\n      </tr>\n    </table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "bnezalc.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

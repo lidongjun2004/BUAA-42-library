@@ -1,0 +1,26 @@
+{
+  "Id": 1189,
+  "Name": "P4_L5_sbsam_2023",
+  "Description": "# SBSAM\n## Store Byte Shift And Mask \n<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">31</span>\n            <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">25</span>\n            <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">20</span>\n            <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-imm-top\">\n            <span style=\"float: left;\">15</span>\n            <span style=\"float: right;\">0</span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            SBSAM<br />\n            111110\n        </td>\n        <td id=\"td-rs\">base</td>\n        <td id=\"td-rt\">\n            rt\n        </td>\n        <td id=\"td-imm\">\n            offset\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-imm-bottom\">\n            16\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                sbsam rt, offset(base)\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                将 GPR[rt] 中的数据循环左移 GPR[base] 次，以 offset 高 5 位为 32 位掩码中 1 的初始位置，GPR[base] 高 5 位为 32 位掩码中 1 的结束位置，将掩码与 GPR[rt] 中数据相与后写入内存中相应字节位置\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                vaddr ← GPR[base] + sign_extend(offset)\n            </p>\n               <p id=\"p-code\">\n                byte ← vaddr<sub style=\"font-size: 65%\">1..0</sub>\n            </p>\n            <p id=\"p-code\">\n                paddr ← vaddr<sub>31...2</sub> || 0<sup>2</sup></p>\n                <p id=\"p-code\">\n                temp2 ← GPR[base]<sub>4...0</sub>\n            </p>\n            <p id=\"p-code\">\n                temp3 ← GPR[base]<sub>31...27</sub>\n            </p>\n             <p id=\"p-code\">\n                temp4 ←  offset<sub>15...11</sub>\n            </p>\n             <p id=\"p-code\">if temp2 = 0 then</p>\n             <p id=\"p-code\" style=\"text-indent: 4em\">temp1 ← GPR[rt]</p> \n            <p id=\"p-code\">else</p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">temp1 ← GPR[rt]<sub>31-temp2...0</sub> || GPR[rt]<sub>31...32-temp2</sub></p> \n             <p id=\"p-code\">endif</p>\n            <p id=\"p-code\">if temp3 >= temp4 then</p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">mask ← （0<sup>32-temp3</sup> || 1<sup>temp3-temp4</sup> || 0<sup>temp4</sup>）</p>\n             <p id=\"p-code\">else</p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">mask ← （1<sup>32-temp4</sup> || 0<sup>temp4-temp3</sup> || 1<sup>temp3</sup>）\n            </p>\n            <p id=\"p-code\">endif</p>\n            <p id=\"p-code\">memword ← memory[paddr]\n              </p>\n            <p id=\"p-code\">\n               memword<sub>byte*8+7...byte*8 </sub> ← mask<sub>byte*8+7...byte*8 </sub> & temp1<sub>byte*8+7...byte*8 </sub>\n            </p>\n             <p id=\"p-code\">\n                   memory[paddr] ← memword\n                </p> \n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                sbsam $t0, 1($t1)\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            其他\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-text\">\n                指令表现以 .class 指令扩展在 MARS 中的行为为准\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "sbsam.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

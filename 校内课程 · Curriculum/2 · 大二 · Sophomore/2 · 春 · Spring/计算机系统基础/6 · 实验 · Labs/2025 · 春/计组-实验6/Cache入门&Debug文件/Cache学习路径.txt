@@ -1,0 +1,28 @@
+学习路径：
+1、LRU，不用管MemRead，按教程第五章进行即可。
+⚠️含义为寻找要修改的Block（包括：命中写入时修改内容；或未命中读取时更新最劣Block，注意Enable）
+2、理解以下内容（总体框架理解）：
+参考https://zhuanlan.zhihu.com/p/679970109，课件。简要：
+直接映射Cache：访问缺失时，被请求数据所在的块只能进入Cache的一个位置，占用该位置的数据块必须被替换掉
+全相联Cache：访问缺失时，被请求数据所在块可以进入Cache的任何位置，因此应在Cache中任意选择一个数据块进行替换即可
+组相联Cache：访问缺失时，被请求数据所在块可以进入Cache某一组的任何位置，因此应在Cache对应组内选择一个数据块进行替换
+https://yuanbao.tencent.com/bot/app/share/chat/kdLCT4jA06pV
+3、理解RAM干了啥，包括延迟模拟
+4、搭建CacheBlock，按教程即可
+5、Counter，按题目要求写即可
+6、尝试搭建CacheGroup，1 Group（组）内有4 Block（路）
+
+功能：Enable时（对应Group组激活）->所有输出采用三态门，E控制
+MemRead:
+  检查是否存了对应Tag(且valid)，有则hit，无则miss
+  R-hit: 三态门控制输出对应CacheBlock的Data
+  R-miss: 替代，通过LRU计算被替代的Block，stop时disable LRU和Counter
+
+MemWrite:
+  懒得写了好简单（bushi）
+    无论如何都修改RAM，hit的时候顺便修改Cache
+
+Stop:
+  含义为中断，两种实现：
+        一种是stop时禁用Cache的CLK，可以加一个寄存器缓冲；
+        一种是stop时改使能端，从而禁用LRU和Counter；

@@ -1,0 +1,70 @@
+[data] 读取数据集: /Users/minimax/workplace/personal/college/curriculum/junior/知识图谱/作业/hw1/李东骏-23371100-第一次作业/data_ner
+[data] 句子数  train=3821 dev=463 test=477
+[data] 字表大小=1794  标签数=17  标签=['O', 'B-CONT', 'B-EDU', 'B-LOC', 'B-NAME', 'B-ORG', 'B-PRO', 'B-RACE', 'B-TITLE', 'I-CONT', 'I-EDU', 'I-LOC', 'I-NAME', 'I-ORG', 'I-PRO', 'I-RACE', 'I-TITLE']
+[model] BiLSTM-CRF 参数量=498,516  device=cpu
+[epoch 01] loss=45.2495  dev: P=0.4086 R=0.4556 F1=0.4308  *最优
+[epoch 02] loss=15.8505  dev: P=0.6569 R=0.7214 F1=0.6877  *最优
+[epoch 03] loss=10.2793  dev: P=0.7361 R=0.7882 F1=0.7613  *最优
+[epoch 04] loss=7.7481  dev: P=0.7930 R=0.8216 F1=0.8071  *最优
+[epoch 05] loss=6.2500  dev: P=0.8276 R=0.8564 F1=0.8418  *最优
+[epoch 06] loss=5.2006  dev: P=0.8384 R=0.8631 F1=0.8506  *最优
+[epoch 07] loss=4.6172  dev: P=0.8499 R=0.8737 F1=0.8617  *最优
+[epoch 08] loss=4.1613  dev: P=0.8430 R=0.8751 F1=0.8587
+[epoch 09] loss=3.6968  dev: P=0.8679 R=0.8864 F1=0.8771  *最优
+[epoch 10] loss=3.3571  dev: P=0.8822 R=0.9005 F1=0.8912  *最优
+[epoch 11] loss=3.0932  dev: P=0.8786 R=0.9038 F1=0.8910
+[epoch 12] loss=2.7566  dev: P=0.8988 R=0.9078 F1=0.9033  *最优
+[epoch 13] loss=2.5635  dev: P=0.8885 R=0.9051 F1=0.8968
+[epoch 14] loss=2.3730  dev: P=0.8879 R=0.9105 F1=0.8991
+[epoch 15] loss=2.2385  dev: P=0.8925 R=0.9092 F1=0.9007
+[epoch 16] loss=2.0060  dev: P=0.8921 R=0.9112 F1=0.9015
+[epoch 17] loss=1.9163  dev: P=0.8967 R=0.9165 F1=0.9065  *最优
+[epoch 18] loss=1.8180  dev: P=0.8973 R=0.9158 F1=0.9064
+[epoch 19] loss=1.6687  dev: P=0.8968 R=0.9172 F1=0.9069  *最优
+[epoch 20] loss=1.5756  dev: P=0.8989 R=0.9092 F1=0.9040
+[epoch 21] loss=1.5079  dev: P=0.9022 R=0.9178 F1=0.9099  *最优
+[epoch 22] loss=1.3761  dev: P=0.9107 R=0.9198 F1=0.9153  *最优
+[epoch 23] loss=1.3156  dev: P=0.9096 R=0.9212 F1=0.9154  *最优
+[epoch 24] loss=1.2473  dev: P=0.9114 R=0.9212 F1=0.9163  *最优
+[epoch 25] loss=1.2241  dev: P=0.9147 R=0.9238 F1=0.9192  *最优
+[epoch 26] loss=1.1203  dev: P=0.9128 R=0.9232 F1=0.9180
+[epoch 27] loss=1.0312  dev: P=0.9164 R=0.9225 F1=0.9194  *最优
+[epoch 28] loss=1.0655  dev: P=0.9167 R=0.9265 F1=0.9216  *最优
+[epoch 29] loss=0.9420  dev: P=0.9171 R=0.9312 F1=0.9241  *最优
+[epoch 30] loss=0.9086  dev: P=0.9132 R=0.9279 F1=0.9205
+[epoch 31] loss=0.8693  dev: P=0.9077 R=0.9198 F1=0.9137
+[epoch 32] loss=0.8442  dev: P=0.9024 R=0.9198 F1=0.9110
+[epoch 33] loss=0.7732  dev: P=0.9198 R=0.9272 F1=0.9235
+[epoch 34] loss=0.7579  dev: P=0.9170 R=0.9299 F1=0.9234
+[epoch 35] loss=0.7608  dev: P=0.9089 R=0.9265 F1=0.9176
+[epoch 36] loss=0.7172  dev: P=0.9212 R=0.9292 F1=0.9252  *最优
+[epoch 37] loss=0.6790  dev: P=0.9221 R=0.9325 F1=0.9273  *最优
+[epoch 38] loss=0.6551  dev: P=0.9145 R=0.9292 F1=0.9218
+[epoch 39] loss=0.6250  dev: P=0.9224 R=0.9365 F1=0.9294  *最优
+[epoch 40] loss=0.6373  dev: P=0.9089 R=0.9259 F1=0.9173
+[train] 完成，用时 600.9s，最优 dev F1=0.9294 (epoch 39)
+
+============================================================
+测试集 (test.txt) 实体级评估结果
+============================================================
+Precision = 0.9276
+Recall    = 0.9356
+F1-score  = 0.9316
+------------------------------------------------------------
+              precision    recall  f1-score   support
+
+        CONT     1.0000    1.0000    1.0000        28
+         EDU     0.9643    0.9643    0.9643       112
+         LOC     1.0000    0.8333    0.9091         6
+        NAME     0.9910    0.9821    0.9865       112
+         ORG     0.9039    0.9186    0.9112       553
+         PRO     0.8529    0.8788    0.8657        33
+        RACE     1.0000    1.0000    1.0000        14
+       TITLE     0.9293    0.9365    0.9329       772
+
+   micro avg     0.9276    0.9356    0.9316      1630
+   macro avg     0.9552    0.9392    0.9462      1630
+weighted avg     0.9279    0.9356    0.9317      1630
+
+
+[done] 训练历史与测试指标已写入: /Users/minimax/workplace/personal/college/curriculum/junior/知识图谱/作业/hw1/李东骏-23371100-第一次作业/results

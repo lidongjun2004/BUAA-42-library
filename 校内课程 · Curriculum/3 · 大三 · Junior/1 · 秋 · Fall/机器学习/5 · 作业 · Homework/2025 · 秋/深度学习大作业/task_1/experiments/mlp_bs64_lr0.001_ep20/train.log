@@ -1,0 +1,192 @@
+2025-12-29 18:36:03,808 | ============================================================
+2025-12-29 18:36:03,809 | Experiment Started
+2025-12-29 18:36:03,809 | Time: 2025-12-29 18:36:03.809404
+2025-12-29 18:36:03,810 | Hyperparameters:
+2025-12-29 18:36:03,810 |   batch_size: 64
+2025-12-29 18:36:03,811 |   learning_rate: 0.001
+2025-12-29 18:36:03,812 |   epochs: 20
+2025-12-29 18:36:03,813 | ============================================================
+2025-12-29 18:36:18,614 | Train Epoch 1: Loss=0.2931, Accuracy=90.90%
+2025-12-29 18:36:20,024 | Test Epoch 1: Loss=0.1682, Accuracy=95.00%
+2025-12-29 18:36:36,505 | Train Epoch 2: Loss=0.1069, Accuracy=96.85%
+2025-12-29 18:36:37,895 | Test Epoch 2: Loss=0.0976, Accuracy=96.87%
+2025-12-29 18:36:55,231 | Train Epoch 3: Loss=0.0781, Accuracy=97.65%
+2025-12-29 18:36:56,705 | Test Epoch 3: Loss=0.0834, Accuracy=97.58%
+2025-12-29 18:37:12,836 | Train Epoch 4: Loss=0.0608, Accuracy=98.17%
+2025-12-29 18:37:14,248 | Test Epoch 4: Loss=0.0859, Accuracy=97.65%
+2025-12-29 18:37:31,201 | Train Epoch 5: Loss=0.0493, Accuracy=98.50%
+2025-12-29 18:37:32,871 | Test Epoch 5: Loss=0.0974, Accuracy=97.50%
+2025-12-29 18:37:49,240 | Train Epoch 6: Loss=0.0420, Accuracy=98.78%
+2025-12-29 18:37:50,686 | Test Epoch 6: Loss=0.0849, Accuracy=97.87%
+2025-12-29 18:38:12,687 | Train Epoch 7: Loss=0.0365, Accuracy=98.91%
+2025-12-29 18:38:15,127 | Test Epoch 7: Loss=0.0905, Accuracy=97.78%
+2025-12-29 18:38:43,605 | Train Epoch 8: Loss=0.0332, Accuracy=99.00%
+2025-12-29 18:38:46,126 | Test Epoch 8: Loss=0.0824, Accuracy=97.89%
+2025-12-29 18:39:14,018 | Train Epoch 9: Loss=0.0261, Accuracy=99.19%
+2025-12-29 18:39:15,969 | Test Epoch 9: Loss=0.0954, Accuracy=97.97%
+2025-12-29 18:39:37,761 | Train Epoch 10: Loss=0.0259, Accuracy=99.23%
+2025-12-29 18:39:40,769 | Test Epoch 10: Loss=0.0845, Accuracy=97.99%
+2025-12-29 18:40:00,835 | Train Epoch 11: Loss=0.0247, Accuracy=99.28%
+2025-12-29 18:40:02,251 | Test Epoch 11: Loss=0.0695, Accuracy=98.34%
+2025-12-29 18:40:23,015 | Train Epoch 12: Loss=0.0207, Accuracy=99.39%
+2025-12-29 18:40:24,383 | Test Epoch 12: Loss=0.0873, Accuracy=98.01%
+2025-12-29 18:40:41,441 | Train Epoch 13: Loss=0.0202, Accuracy=99.42%
+2025-12-29 18:40:42,815 | Test Epoch 13: Loss=0.0744, Accuracy=98.21%
+2025-12-29 18:40:59,803 | Train Epoch 14: Loss=0.0158, Accuracy=99.53%
+2025-12-29 18:41:01,176 | Test Epoch 14: Loss=0.0804, Accuracy=98.21%
+2025-12-29 18:41:18,203 | Train Epoch 15: Loss=0.0188, Accuracy=99.46%
+2025-12-29 18:41:19,694 | Test Epoch 15: Loss=0.0863, Accuracy=98.25%
+2025-12-29 18:41:37,203 | Train Epoch 16: Loss=0.0166, Accuracy=99.49%
+2025-12-29 18:41:38,576 | Test Epoch 16: Loss=0.0984, Accuracy=98.35%
+2025-12-29 18:41:56,428 | Train Epoch 17: Loss=0.0136, Accuracy=99.63%
+2025-12-29 18:41:57,803 | Test Epoch 17: Loss=0.0955, Accuracy=98.03%
+2025-12-29 18:42:16,548 | Train Epoch 18: Loss=0.0148, Accuracy=99.60%
+2025-12-29 18:42:18,492 | Test Epoch 18: Loss=0.0972, Accuracy=98.10%
+2025-12-29 18:42:46,016 | Train Epoch 19: Loss=0.0137, Accuracy=99.63%
+2025-12-29 18:42:51,377 | Test Epoch 19: Loss=0.0953, Accuracy=97.80%
+2025-12-29 18:43:45,348 | Train Epoch 20: Loss=0.0129, Accuracy=99.61%
+2025-12-29 18:43:50,717 | Test Epoch 20: Loss=0.0916, Accuracy=98.14%
+2025-12-29 18:43:51,974 | ============================================================
+2025-12-29 18:43:51,979 | Experiment Started
+2025-12-29 18:43:51,980 | Time: 2025-12-29 18:43:51.980609
+2025-12-29 18:43:51,981 | Hyperparameters:
+2025-12-29 18:43:51,981 |   batch_size: 64
+2025-12-29 18:43:51,983 |   learning_rate: 0.005
+2025-12-29 18:43:51,987 |   epochs: 20
+2025-12-29 18:43:51,988 | ============================================================
+2025-12-29 18:44:43,122 | Train Epoch 1: Loss=0.3153, Accuracy=90.71%
+2025-12-29 18:44:48,471 | Test Epoch 1: Loss=0.2149, Accuracy=94.11%
+2025-12-29 18:45:49,698 | Train Epoch 2: Loss=0.1601, Accuracy=95.94%
+2025-12-29 18:45:54,948 | Test Epoch 2: Loss=0.1581, Accuracy=95.98%
+2025-12-29 18:46:56,684 | Train Epoch 3: Loss=0.1259, Accuracy=96.74%
+2025-12-29 18:47:01,920 | Test Epoch 3: Loss=0.1212, Accuracy=97.01%
+2025-12-29 18:48:03,720 | Train Epoch 4: Loss=0.1167, Accuracy=97.10%
+2025-12-29 18:48:09,251 | Test Epoch 4: Loss=0.1509, Accuracy=96.69%
+2025-12-29 18:49:12,645 | Train Epoch 5: Loss=0.1082, Accuracy=97.42%
+2025-12-29 18:49:18,164 | Test Epoch 5: Loss=0.1494, Accuracy=96.59%
+2025-12-29 18:50:22,145 | Train Epoch 6: Loss=0.0940, Accuracy=97.63%
+2025-12-29 18:50:27,700 | Test Epoch 6: Loss=0.1275, Accuracy=97.14%
+2025-12-29 18:51:31,283 | Train Epoch 7: Loss=0.1013, Accuracy=97.58%
+2025-12-29 18:51:33,467 | Test Epoch 7: Loss=0.1224, Accuracy=97.50%
+2025-12-29 18:51:58,029 | Train Epoch 8: Loss=0.0795, Accuracy=98.11%
+2025-12-29 18:51:59,461 | Test Epoch 8: Loss=0.1358, Accuracy=97.13%
+2025-12-29 18:52:30,380 | Train Epoch 9: Loss=0.0795, Accuracy=98.07%
+2025-12-29 18:52:32,462 | Test Epoch 9: Loss=0.1376, Accuracy=97.44%
+2025-12-29 18:53:06,753 | Train Epoch 10: Loss=0.0818, Accuracy=98.03%
+2025-12-29 18:53:09,183 | Test Epoch 10: Loss=0.1276, Accuracy=97.60%
+2025-12-29 18:53:43,552 | Train Epoch 11: Loss=0.0930, Accuracy=97.81%
+2025-12-29 18:53:44,954 | Test Epoch 11: Loss=0.1239, Accuracy=97.56%
+2025-12-29 18:54:13,729 | Train Epoch 12: Loss=0.0707, Accuracy=98.31%
+2025-12-29 18:54:16,011 | Test Epoch 12: Loss=0.1377, Accuracy=97.57%
+2025-12-29 18:54:51,436 | Train Epoch 13: Loss=0.0860, Accuracy=98.14%
+2025-12-29 18:54:54,035 | Test Epoch 13: Loss=0.1320, Accuracy=97.44%
+2025-12-29 18:55:28,461 | Train Epoch 14: Loss=0.0639, Accuracy=98.54%
+2025-12-29 18:55:31,339 | Test Epoch 14: Loss=0.1155, Accuracy=97.82%
+2025-12-29 18:56:05,282 | Train Epoch 15: Loss=0.0605, Accuracy=98.57%
+2025-12-29 18:56:07,330 | Test Epoch 15: Loss=0.1326, Accuracy=97.50%
+2025-12-29 18:56:41,168 | Train Epoch 16: Loss=0.0625, Accuracy=98.54%
+2025-12-29 18:56:43,641 | Test Epoch 16: Loss=0.1075, Accuracy=97.58%
+2025-12-29 18:57:17,192 | Train Epoch 17: Loss=0.0617, Accuracy=98.58%
+2025-12-29 18:57:19,187 | Test Epoch 17: Loss=0.1308, Accuracy=97.47%
+2025-12-29 18:57:55,726 | Train Epoch 18: Loss=0.0695, Accuracy=98.39%
+2025-12-29 18:57:58,229 | Test Epoch 18: Loss=0.1560, Accuracy=97.34%
+2025-12-29 18:58:32,558 | Train Epoch 19: Loss=0.0595, Accuracy=98.67%
+2025-12-29 18:58:33,977 | Test Epoch 19: Loss=0.1667, Accuracy=96.78%
+2025-12-29 18:59:03,409 | Train Epoch 20: Loss=0.0619, Accuracy=98.64%
+2025-12-29 18:59:05,818 | Test Epoch 20: Loss=0.1392, Accuracy=97.61%
+2025-12-29 18:59:06,410 | ============================================================
+2025-12-29 18:59:06,411 | Experiment Started
+2025-12-29 18:59:06,411 | Time: 2025-12-29 18:59:06.411052
+2025-12-29 18:59:06,411 | Hyperparameters:
+2025-12-29 18:59:06,411 |   batch_size: 64
+2025-12-29 18:59:06,411 |   learning_rate: 0.001
+2025-12-29 18:59:06,411 |   epochs: 20
+2025-12-29 18:59:06,412 | ============================================================
+2025-12-29 18:59:30,754 | Train Epoch 1: Loss=0.3011, Accuracy=90.56%
+2025-12-29 18:59:32,290 | Test Epoch 1: Loss=0.1624, Accuracy=95.16%
+2025-12-29 18:59:58,578 | Train Epoch 2: Loss=0.1099, Accuracy=96.67%
+2025-12-29 19:00:00,784 | Test Epoch 2: Loss=0.1122, Accuracy=96.63%
+2025-12-29 19:00:29,088 | Train Epoch 3: Loss=0.0770, Accuracy=97.72%
+2025-12-29 19:00:30,843 | Test Epoch 3: Loss=0.1014, Accuracy=96.97%
+2025-12-29 19:00:58,490 | Train Epoch 4: Loss=0.0621, Accuracy=98.13%
+2025-12-29 19:01:00,772 | Test Epoch 4: Loss=0.0825, Accuracy=97.67%
+2025-12-29 19:01:28,573 | Train Epoch 5: Loss=0.0487, Accuracy=98.50%
+2025-12-29 19:01:30,874 | Test Epoch 5: Loss=0.0821, Accuracy=97.68%
+2025-12-29 19:01:58,774 | Train Epoch 6: Loss=0.0424, Accuracy=98.68%
+2025-12-29 19:02:00,961 | Test Epoch 6: Loss=0.0766, Accuracy=97.90%
+2025-12-29 19:02:27,827 | Train Epoch 7: Loss=0.0363, Accuracy=98.93%
+2025-12-29 19:02:29,660 | Test Epoch 7: Loss=0.0741, Accuracy=97.91%
+2025-12-29 19:02:56,345 | Train Epoch 8: Loss=0.0318, Accuracy=99.09%
+2025-12-29 19:02:58,521 | Test Epoch 8: Loss=0.0881, Accuracy=97.67%
+2025-12-29 19:03:34,305 | Train Epoch 9: Loss=0.0285, Accuracy=99.13%
+2025-12-29 19:03:39,307 | Test Epoch 9: Loss=0.0768, Accuracy=98.19%
+2025-12-29 19:04:32,229 | Train Epoch 10: Loss=0.0271, Accuracy=99.19%
+2025-12-29 19:04:36,996 | Test Epoch 10: Loss=0.0765, Accuracy=98.12%
+2025-12-29 19:05:30,142 | Train Epoch 11: Loss=0.0229, Accuracy=99.36%
+2025-12-29 19:05:34,789 | Test Epoch 11: Loss=0.0793, Accuracy=98.16%
+2025-12-29 19:06:28,236 | Train Epoch 12: Loss=0.0211, Accuracy=99.35%
+2025-12-29 19:06:33,110 | Test Epoch 12: Loss=0.1026, Accuracy=97.97%
+2025-12-29 19:07:26,100 | Train Epoch 13: Loss=0.0230, Accuracy=99.31%
+2025-12-29 19:07:31,029 | Test Epoch 13: Loss=0.0925, Accuracy=98.04%
+2025-12-29 19:08:25,356 | Train Epoch 14: Loss=0.0179, Accuracy=99.50%
+2025-12-29 19:08:31,392 | Test Epoch 14: Loss=0.0782, Accuracy=98.30%
+2025-12-29 19:09:24,962 | Train Epoch 15: Loss=0.0163, Accuracy=99.51%
+2025-12-29 19:09:30,227 | Test Epoch 15: Loss=0.0956, Accuracy=98.16%
+2025-12-29 19:10:23,458 | Train Epoch 16: Loss=0.0155, Accuracy=99.51%
+2025-12-29 19:10:28,314 | Test Epoch 16: Loss=0.0985, Accuracy=98.13%
+2025-12-29 19:11:20,102 | Train Epoch 17: Loss=0.0175, Accuracy=99.50%
+2025-12-29 19:11:21,502 | Test Epoch 17: Loss=0.0923, Accuracy=97.98%
+2025-12-29 19:11:39,238 | Train Epoch 18: Loss=0.0136, Accuracy=99.63%
+2025-12-29 19:11:40,614 | Test Epoch 18: Loss=0.0894, Accuracy=98.22%
+2025-12-29 19:11:57,792 | Train Epoch 19: Loss=0.0153, Accuracy=99.57%
+2025-12-29 19:11:59,186 | Test Epoch 19: Loss=0.0833, Accuracy=98.22%
+2025-12-29 19:12:16,423 | Train Epoch 20: Loss=0.0110, Accuracy=99.67%
+2025-12-29 19:12:17,775 | Test Epoch 20: Loss=0.0934, Accuracy=98.21%
+2025-12-29 19:12:18,102 | ============================================================
+2025-12-29 19:12:18,102 | Experiment Started
+2025-12-29 19:12:18,102 | Time: 2025-12-29 19:12:18.102919
+2025-12-29 19:12:18,103 | Hyperparameters:
+2025-12-29 19:12:18,104 |   batch_size: 128
+2025-12-29 19:12:18,104 |   learning_rate: 0.001
+2025-12-29 19:12:18,104 |   epochs: 20
+2025-12-29 19:12:18,104 | ============================================================
+2025-12-29 19:12:29,007 | Train Epoch 1: Loss=0.3413, Accuracy=89.40%
+2025-12-29 19:12:30,386 | Test Epoch 1: Loss=0.1421, Accuracy=95.47%
+2025-12-29 19:12:41,744 | Train Epoch 2: Loss=0.1096, Accuracy=96.63%
+2025-12-29 19:12:43,179 | Test Epoch 2: Loss=0.1010, Accuracy=97.01%
+2025-12-29 19:12:54,800 | Train Epoch 3: Loss=0.0778, Accuracy=97.58%
+2025-12-29 19:12:56,139 | Test Epoch 3: Loss=0.0882, Accuracy=97.40%
+2025-12-29 19:13:07,629 | Train Epoch 4: Loss=0.0582, Accuracy=98.19%
+2025-12-29 19:13:08,981 | Test Epoch 4: Loss=0.0802, Accuracy=97.75%
+2025-12-29 19:13:20,521 | Train Epoch 5: Loss=0.0453, Accuracy=98.56%
+2025-12-29 19:13:21,869 | Test Epoch 5: Loss=0.0730, Accuracy=97.67%
+2025-12-29 19:13:33,672 | Train Epoch 6: Loss=0.0383, Accuracy=98.80%
+2025-12-29 19:13:35,027 | Test Epoch 6: Loss=0.0663, Accuracy=98.24%
+2025-12-29 19:13:46,753 | Train Epoch 7: Loss=0.0328, Accuracy=98.97%
+2025-12-29 19:13:48,106 | Test Epoch 7: Loss=0.0866, Accuracy=97.52%
+2025-12-29 19:13:59,838 | Train Epoch 8: Loss=0.0326, Accuracy=98.97%
+2025-12-29 19:14:01,268 | Test Epoch 8: Loss=0.0789, Accuracy=97.68%
+2025-12-29 19:14:13,066 | Train Epoch 9: Loss=0.0263, Accuracy=99.17%
+2025-12-29 19:14:14,429 | Test Epoch 9: Loss=0.0778, Accuracy=98.09%
+2025-12-29 19:14:26,067 | Train Epoch 10: Loss=0.0240, Accuracy=99.26%
+2025-12-29 19:14:27,479 | Test Epoch 10: Loss=0.0851, Accuracy=97.63%
+2025-12-29 19:14:39,161 | Train Epoch 11: Loss=0.0191, Accuracy=99.41%
+2025-12-29 19:14:40,560 | Test Epoch 11: Loss=0.0911, Accuracy=98.02%
+2025-12-29 19:14:52,296 | Train Epoch 12: Loss=0.0178, Accuracy=99.43%
+2025-12-29 19:14:53,715 | Test Epoch 12: Loss=0.0818, Accuracy=98.04%
+2025-12-29 19:15:05,345 | Train Epoch 13: Loss=0.0209, Accuracy=99.37%
+2025-12-29 19:15:06,740 | Test Epoch 13: Loss=0.0843, Accuracy=97.99%
+2025-12-29 19:15:18,446 | Train Epoch 14: Loss=0.0167, Accuracy=99.45%
+2025-12-29 19:15:19,869 | Test Epoch 14: Loss=0.0879, Accuracy=98.03%
+2025-12-29 19:15:31,927 | Train Epoch 15: Loss=0.0160, Accuracy=99.50%
+2025-12-29 19:15:34,266 | Test Epoch 15: Loss=0.0853, Accuracy=97.89%
+2025-12-29 19:15:56,912 | Train Epoch 16: Loss=0.0134, Accuracy=99.59%
+2025-12-29 19:15:59,161 | Test Epoch 16: Loss=0.0889, Accuracy=98.08%
+2025-12-29 19:16:21,923 | Train Epoch 17: Loss=0.0131, Accuracy=99.60%
+2025-12-29 19:16:23,936 | Test Epoch 17: Loss=0.0976, Accuracy=97.95%
+2025-12-29 19:16:38,323 | Train Epoch 18: Loss=0.0141, Accuracy=99.59%
+2025-12-29 19:16:39,728 | Test Epoch 18: Loss=0.0840, Accuracy=98.25%
+2025-12-29 19:17:02,501 | Train Epoch 19: Loss=0.0142, Accuracy=99.58%
+2025-12-29 19:17:04,901 | Test Epoch 19: Loss=0.0796, Accuracy=98.12%
+2025-12-29 19:17:27,561 | Train Epoch 20: Loss=0.0099, Accuracy=99.71%
+2025-12-29 19:17:29,940 | Test Epoch 20: Loss=0.0890, Accuracy=98.23%

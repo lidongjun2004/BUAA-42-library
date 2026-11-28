@@ -1,0 +1,65 @@
+# macOS 系统文件
+.DS_Store
+
+# 不纳入仓库的顶层目录
+/归档 · Archive/
+
+# 课程库管理表、隐私目录与全部原始文件
+**/原始文件/
+/校内课程 · Curriculum/2 · 大二 · Sophomore/通识课 · General Education/毛泽东思想和中国特色社会主义理论体系概论/7 · 参考资料 · References/点名册/
+
+# >= 100 MiB 的教材、参考书与课件
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/中国近代史纲要/4 · 教材 · Textbook/\[中国近代史纲要\]-\[教材\]-\[中国近现代史纲要(2023年版)\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/2 · 春 · Spring/离散数学/7 · 参考资料 · References/参考书/\[离散数学\]-\[参考资料\]-\[参考书\]-\[离散数学及其应用原书第8版\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/计算机系统基础/7 · 参考资料 · References/参考书/\[计算机系统基础\]-\[参考资料\]-\[参考书\]-\[现代操作系统-原理与实现\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/计算机系统基础/7 · 参考资料 · References/参考书/\[计算机系统基础\]-\[参考资料\]-\[参考书\]-\[计算机组成与设计-硬件软件接口\].pdf
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/自动控制基础/4 · 教材 · Textbook/\[自动控制基础\]-\[教材\]-\[自动控制原理(第三版)\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/计算机系统基础/7 · 参考资料 · References/参考书/\[计算机系统基础\]-\[参考资料\]-\[参考书\]-\[现代操作系统-第四版\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/2 · 春 · Spring/离散数学/4 · 教材 · Textbook/\[离散数学\]-\[教材\]-\[离散数学（第3版）\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/通识课 · General Education/马克思主义原理/4 · 教材 · Textbook/\[马克思主义原理\]-\[教材\]-\[马克思主义基本原理(2023版)\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/中国近代史纲要/3 · 课件 · Slides/\[中国近代史纲要\]-\[课件\]-\[3对国家出路的早期探索-第三专题对国家出路的早期探索\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/计算机系统基础/7 · 参考资料 · References/参考书/\[计算机系统基础\]-\[参考资料\]-\[参考书\]-\[计算机组成与设计-硬件软件接口-中文第5版\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/中国近代史纲要/3 · 课件 · Slides/\[中国近代史纲要\]-\[课件\]-\[8神圣的民族解放战争-第八专题神圣的民族解放战争\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/中国近代史纲要/3 · 课件 · Slides/\[中国近代史纲要\]-\[课件\]-\[11决定当代中国命运的关键一招-第十一专题决定当代中国命运的关键一招\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/计算机系统基础/7 · 参考资料 · References/考研复习指导/\[计算机系统基础\]-\[参考资料\]-\[考研复习指导\]-\[2026年计算机组成原理考研复习指导(王道)\].pdf
+/校内课程 · Curriculum/2 · 大二 · Sophomore/通识课 · General Education/毛泽东思想和中国特色社会主义理论体系概论/4 · 教材 · Textbook/\[毛泽东思想和中国特色社会主义理论体系概论\]-\[教材\]-\[毛泽东思想和中国特色社会主义理论体系概论(2023版)\].pdf
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/模式识别与机器视觉/3 · 课件 · Slides/\[模式识别与机器视觉\]-\[课件\]-\[7视频生成技术\].pdf
+/校内课程 · Curriculum/1 · 大一 · Freshman/1 · 秋 · Fall/程序设计基础/7 · 参考资料 · References/参考书/\[程序设计基础\]-\[参考资料\]-\[参考书\]-\[深入浅出程序设计竞赛\].pdf
+
+# 视频、模型权重、压缩包与原始二进制数据集
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/大学英语/5 · 作业 · Homework/2024 · 春/配音/\[大学英语\]-\[作业\]-\[配音\]-\[2024春\]-\[英语配音\].mp4
+/校内课程 · Curriculum/1 · 大一 · Freshman/通识课 · General Education/电影鉴赏与分析/5 · 作业 · Homework/2024 · 春/结课作业/\[电影鉴赏与分析\]-\[作业\]-\[结课作业\]-\[2024春\]-\[第四小组结课作业\].mp4
+/校内课程 · Curriculum/2 · 大二 · Sophomore/1 · 秋 · Fall/抽象代数/7 · 参考资料 · References/串讲/\[抽象代数\]-\[参考资料\]-\[串讲\]-\[期末串讲录像(含金量不高-请理性看待)\].wmv
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/PPT素材/\[信号与系统\]-\[作业\]-\[大作业\]-\[2025春\]-\[卷毛巾\].mp4
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/智能控制与机器人/6 · 实验 · Labs/2026 · 春/实验提交-group01/group01/Closed-Loop Demo/closed_loop_bench2drive_00.mp4
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/智能控制与机器人/6 · 实验 · Labs/2026 · 春/实验提交-group01/group01/Closed-Loop Demo/closed_loop_bench2drive_05.mp4
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/智能控制与机器人/6 · 实验 · Labs/2026 · 春/实验提交-group01/group01/Closed-Loop Demo/closed_loop_bench2drive_36.mp4
+/校内课程 · Curriculum/4 · 大四 · Senior/1 · 秋 · Fall/群体智能/5 · 作业 · Homework/2026 · 秋/第2次作业/\[群体智能\]-\[作业\]-\[第2次作业\]-\[2026秋\]-\[演化过程视频\].mp4
+/校内课程 · Curriculum/5 · 一般专业课 · General Electives/计算机图形学基础/5 · 作业 · Homework/2024 · 秋/大作业/最终提交/\[计算机图形学基础\]-\[作业\]-\[大作业\]-\[2024秋\]-\[视频效果展示\].mp4
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/代码/normal_CNN/params.pkl
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/params.pkl
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/dataset/mnist.pkl
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/知识图谱/5 · 作业 · Homework/2026 · 春/第1次作业/李东骏-23371100-第一次作业/checkpoints/best_model.pt
+/校内课程 · Curriculum/3 · 大三 · Junior/2 · 春 · Spring/知识图谱/5 · 作业 · Homework/2026 · 春/第2次作业/李东骏-23371100-第二次作业/checkpoint/transe_fb15k237.ckpt
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/代码/normal_CNN/dataset/t10k-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/代码/normal_CNN/dataset/train-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/dataset/t10k-images-idx3-ubyte.gz
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/dataset/t10k-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/dataset/train-images-idx3-ubyte.gz
+/校内课程 · Curriculum/2 · 大二 · Sophomore/2 · 春 · Spring/信号与系统/5 · 作业 · Homework/2025 · 春/大作业/信号与系统大作业-10-周文钰-3/信号与系统大作业-10-周文钰-3-代码/基础2-CNN/dataset/train-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/t10k-images-idx3-ubyte
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/t10k-images-idx3-ubyte.gz
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/t10k-labels-idx1-ubyte
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/train-images-idx3-ubyte
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/train-images-idx3-ubyte.gz
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/train-labels-idx1-ubyte
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_1/data/MNIST/raw/train-labels-idx1-ubyte.gz
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/batches.meta
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/data_batch_1
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/data_batch_2
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/data_batch_3
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/data_batch_4
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/data_batch_5
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/readme.html
+/校内课程 · Curriculum/3 · 大三 · Junior/1 · 秋 · Fall/机器学习/5 · 作业 · Homework/2025 · 秋/深度学习大作业/task_2/task2_3/data/cifar-10-batches-py/test_batch

@@ -1,0 +1,26 @@
+{
+  "Id": 987,
+  "Name": "P4_L6_LBOEZ_2022",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n      <td id=\"td-head\" rowspan=\"3\">\n                编码\n            </td>\n      <td id=\"td-opcode-top\">\n        <span style=\"float: left;\">31</span>\n        <span style=\"float: right;\">26</span>\n      </td>\n      <td id=\"td-rs-top\">\n        <span style=\"float: left;\">25</span>\n        <span style=\"float: right;\">21</span>\n      </td>\n      <td id=\"td-rt-top\">\n        <span style=\"float: left;\">20</span>\n        <span style=\"float: right;\">16</span>\n      </td>\n      <td id=\"td-imm-top\">\n        <span style=\"float: left;\">15</span>\n        <span style=\"float: right;\">0</span>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-opcode\">\n                LBOEZ<br/>\n                111110\n            </td>\n      <td id=\"td-rs\">base</td>\n      <td id=\"td-rt\">\n                rt\n            </td>\n      <td id=\"td-imm\">\n                offset\n            </td>\n    </tr>\n    <tr>\n      <td id=\"td-opcode-bottom\">\n                6\n            </td>\n      <td id=\"td-rs-bottom\">\n                5\n            </td>\n      <td id=\"td-rt-bottom\">\n                5\n            </td>\n      <td id=\"td-imm-bottom\">\n                16\n            </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                格式\n            </td>\n      <td colspan=\"4\">\n        <p id=\"p-code\">\n                    lboez rt, offset(base)\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                描述\n            </td>\n      <td colspan=\"4\">\n        <p id=\"p-code\">\n            Addr &nbsp; ← &nbsp; GPR[base] + sign_extend(offset)，若memory[Addr]的对应<strong>字节</strong>数据的二进制1的个数等于0的个数，则将该<strong>字节</strong>符号扩展存入GPR[rt]，否则将0存入GPR[rt]。\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                操作\n            </td>\n      <td colspan=\"4\">\n      <p id=\"p-code\">\n                    vaddr ←  GPR[base] + sign_extend(offset)\n                </p>\n                 <p id=\"p-code\">paddr ← vaddr<sub>31...2</sub> || 0<sup>2</sup></p>\n        <p id=\"p-code\">\n                    memword ← Memory[paddr]\n                </p>\n        <p id=\"p-code\">\n          byte ← vaddr<sub style=\"font-size: 65%\">1..0</sub>\n        <p id=\"p-code\">\n            temp ← memword<sub style=\"font-size: 65%\">7+8*byte</sub> + memword<sub style=\"font-size: 65%\">7+8*byte-1</sub> + ... + memword<sub style=\"font-size: 65%\">8*byte</sub>\n                </p>\n        <p id=\"p-code\">\n                    if temp = 4 then\n                </p>\n        <p id=\"p-code\" style=\"text-indent: 4em\">\n                    GPR[rt] &nbsp; ← &nbsp; sign_extend(memword<sub style=\"font-size: 65%\">7+8*byte..8*byte</sub>)\n                </p>\n        <p id=\"p-code\">\n                    else\n                </p>\n        <p id=\"p-code\" style=\"text-indent: 4em\">\n                    GPR[rt] &nbsp; ← &nbsp; 0\n                </p>\n        <p id=\"p-code\">\n                    endif\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                示例\n            </td>\n      <td colspan=\"4\">\n        <p id=\"p-code\">\n                    lboez $t0, 1($t1)\n                </p>\n      </td>\n    </tr>\n    <tr>\n      <td id=\"td-head\">\n                其他\n            </td>\n      <td colspan=\"4\">\n        <p id=\"p-text\">\n          注意：需要取出字中相应的字节，而非对整个字进行操作。\n        </p>\n      </td>\n    </tr>\n  </table>\n",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "lboez.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

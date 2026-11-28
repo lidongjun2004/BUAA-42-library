@@ -1,0 +1,139 @@
+a.运行环境说明
+操作系统：macOS Sonoma (版本 14.6.1, 架构 arm64-apple-darwin23.6.0)
+编译器：Apple clang version 15.0.0 (clang-1500.3.9.4)
+执行终端：macOS 默认终端
+线程模型：POSIX(Pthreads 规范）
+
+b.源文件
+buddy.c
+
+c.关键代码加注释
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_ORDER 5       // 最大阶为 4（代表 2^4 = 16 页，支持阶数为 0, 1, 2, 3, 4）
+#define MEM_SIZE 16       // 模拟系统总内存大小为 16 页
+
+// 页框/内存块结构体
+typedef struct page {
+    int order;            // 当前块的阶数（2^order 页）。如果非块首，则保留为初始态
+    int free;             // 空闲状态标志：1 表示空闲，0 表示已被分配占用
+    void *addr;           // 模拟的物理地址（按 4KB 页对齐）
+} page_t;
+
+page_t mem_pool[MEM_SIZE];     // 全局物理页阵列，模拟连续物理内存空间
+page_t *free_area[MAX_ORDER];  // 空闲块链表/指针阵列，每个元素管理对应 Order 的空闲块首地址
+
+// 初始化伙伴系统
+void buddy_init() {
+    for (int i = 0; i < MEM_SIZE; i++) {
+        mem_pool[i].order = -1;
+        mem_pool[i].free = 0;
+        mem_pool[i].addr = (void *)(unsigned long)(i * 4096); // 每页大小设为经典 4KB
+    }
+    // 初始状态：整个 16 页的内存未被切分，是一个大小为 16 页（2^4）的整块
+    mem_pool[0].order = MAX_ORDER - 1; // 块首设置最高 Order = 4
+    mem_pool[0].free = 1;              // 标记为空闲
+    free_area[MAX_ORDER - 1] = &mem_pool[0]; // 将整块挂载到 Order 4 的空闲区
+
+    // 将低阶（Order 0 ~ 3）的空闲指针初始化为空
+    for (int i = 0; i < MAX_ORDER - 1; i++) {
+        free_area[i] = NULL;
+    }
+    printf("伙伴系统初始化成功：总内存 16 页，初始 Order = %d\n\n", MAX_ORDER - 1);
+}
+
+// 分配页面（核心函数：模拟内核 __alloc_pages）
+page_t *alloc_pages(int order) {
+    if (order >= MAX_ORDER) return NULL;
+
+    // 步骤1：从请求的 order 开始，自底向上寻找第一个有空闲块的更高阶位置
+    int current_order = order;
+    while (current_order < MAX_ORDER && free_area[current_order] == NULL) {
+        current_order++;
+    }
+
+    // 若搜索到顶层仍无可用的连续空闲块，触发内存不足警告
+    if (current_order >= MAX_ORDER) {
+        printf("分配失败：无足够连续空闲内存（需要 Order %d）\n", order);
+        return NULL;
+    }
+
+    // 步骤2：取出高阶空闲块，准备进行拆分
+    page_t *block = free_area[current_order];
+    free_area[current_order] = NULL; // 从当前阶的空闲链中摘除
+
+    // 步骤3：若找到的块大于需求大小，执行“分裂伙伴”循环，直到切出目标 order 的块
+    while (current_order > order) {
+        current_order--; // 降阶准备分裂
+        int idx = block - mem_pool; // 计算当前块在物理阵列中的索引
+        int buddy_idx = idx + (1 << current_order); // 根据二进制偏移计算高位“伙伴块”索引
+        
+        // 初始化分裂出来的高位伙伴块，并将其挂入低一阶的空闲链表
+        mem_pool[buddy_idx].order = current_order;
+        mem_pool[buddy_idx].free = 1;
+        free_area[current_order] = &mem_pool[buddy_idx];
+        
+        // 更新保留下来的低位块的阶数，继续循环或退出
+        block->order = current_order;
+    }
+
+    // 步骤4：标记目标块为已分配占用状态
+    block->free = 0;
+    printf("分配成功：请求 Order %d，实际分配地址=0x%lx，块大小=%d页\n",
+           order, (unsigned long)block->addr, 1 << order);
+    return block;
+}
+
+// 释放页面（核心函数：模拟内核 __free_pages）
+void free_pages(page_t *block) {
+    int order = block->order; // 获取当前释放块的阶数
+    block->free = 1;          // 将其标记回空闲状态
+    
+    // 尝试向上不断合并处于空闲状态的伙伴块
+    while (order < MAX_ORDER - 1) {
+        int idx = block - mem_pool; // 当前块索引
+        
+        /* * 关键异或算法：(idx / 2^order) ^ 1
+         * 能够精准算出物理上相邻且对齐的另一个“伙伴页框”的起始索引。
+         */
+        int buddy_idx = (idx / (1 << order)) ^ 1; 
+        page_t *buddy = &mem_pool[buddy_idx];
+        
+        // 只有当伙伴块当前也是空闲的，且两者处于相同的 Order 等级时，才能发生合体
+        if (buddy->free && buddy->order == order) {
+            free_area[order] = NULL; // 将伙伴块从当前阶的空闲表中移出
+            
+            // 合并时，取两块中索引较小的作为新大块的基地址
+            int new_idx = idx < buddy_idx ? idx : buddy_idx;
+            mem_pool[new_idx].order = order + 1; // 大块阶数提一阶
+            block = &mem_pool[new_idx];          // 指针指向新合并的大块首地址
+            order++;                             // 阶数加 1，继续尝试向上合并
+            printf(" 发现伙伴块空闲，自动合并为 Order %d 大块\n", order);
+        } else {
+            // 伙伴块非空闲或不匹配，终止合并循环
+            break;
+        }
+    }
+    // 将最终无法继续合并的空闲块挂入对应阶的空闲列表中
+    free_area[order] = block;
+    printf("释放成功：地址=0x%lx，当前所在空闲块大小=%d页\n\n",
+           (unsigned long)block->addr, 1 << order);
+}
+
+int main() {
+    buddy_init(); // 初始化 16 页的内存池
+
+    // 依次分配不同大小的内存块以观察分裂过程
+    page_t *b1 = alloc_pages(1); // 请求 2^1 = 2页
+    page_t *b2 = alloc_pages(2); // 请求 2^2 = 4页
+    page_t *b3 = alloc_pages(1); // 请求 2^1 = 2页
+
+    printf("\n--- 开始释放内存 ---\n\n");
+    free_pages(b1); // 释放 2页
+    free_pages(b2); // 释放 4页
+    free_pages(b3); // 释放 2页，此步将引发连续多级级联合并
+
+    return 0;
+}

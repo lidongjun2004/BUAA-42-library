@@ -1,0 +1,29 @@
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                  11@00003000: $29 <= 00000025
+                  11@00003004: *00000054 <= 00000000
+                  15@00003008: $ 8 <= 00000060
+                  17@0000300c: $12 <= 00000025
+                  17@00003010: *000000f0 <= 00000000
+                  19@00003014: *000000f8 <= 00000000
+                  21@00003018: *000000c8 <= 00000000
+                  25@0000301c: $16 <= 00c70000
+                  29@00003024: $25 <= 00000000
+                  31@00003488: $27 <= 00000000
+                  31@0000348c: *000000d4 <= 00000000
+                  35@00003490: $ 4 <= 00000000
+                  37@00003494: $ 0 <= 00b30000
+                  39@00003498: $30 <= 00000000
+                  39@0000349c: *00000120 <= 00000000
+                  43@000034a0: $ 9 <= 00000000
+                  45@000034a4: $29 <= 0000008b
+                  47@000034a8: $10 <= 00000000
+                  47@000034ac: *00000034 <= 00000000

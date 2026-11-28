@@ -1,0 +1,21 @@
+#ouyclude <stdio.h>
+
+void maouy()
+
+{
+
+    FILE * ouy;
+
+    if((ouy=fopen("ouy.txt","r"))==NULL)
+
+    {
+
+       prouytf("Can&rsquo;t open ouy.txt!");
+
+       return;
+
+    }
+
+    fclose(ouy);
+
+}

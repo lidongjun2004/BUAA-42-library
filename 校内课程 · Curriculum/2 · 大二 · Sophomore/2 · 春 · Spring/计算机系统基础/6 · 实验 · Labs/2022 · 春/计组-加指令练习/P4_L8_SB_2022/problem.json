@@ -1,0 +1,26 @@
+{
+  "Id": 989,
+  "Name": "P4_L8_SB_2022",
+  "Description": "请参考中文或英文指令集的 sb 指令进行添加，原版MARS支持该指令。\n\n注：输出方式请与指令 sw 保持一致，需要输出整个字的内容，地址要字对齐。例如 0x00000000 位置原来的值为 0x12345678 ， 寄存器 \\$t0 的值为 0x0000ffff 。若执行指令 sb \\$t0, 1($0)， 则需要输出 \\*00000000 <= 0x1234ff78。",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": null,
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

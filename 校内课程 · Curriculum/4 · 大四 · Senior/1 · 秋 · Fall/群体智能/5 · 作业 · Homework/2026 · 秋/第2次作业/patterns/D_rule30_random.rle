@@ -1,0 +1,5 @@
+#C 1D rule 30, random start (open in Golly)
+x = 195, y = 1, rule = W30
+2obo2b5o6b2ob2obo3b4ob3ob2o5bo3bob4obo5b5obobo2bo4b2o2bo3b4obobob4o2bo
+2bo2bo3bobo2b2obo4b5o2b2obo6bobob2o2bo5b5o2bobo2bobo2b3o3bo5b6obobob2o
+!

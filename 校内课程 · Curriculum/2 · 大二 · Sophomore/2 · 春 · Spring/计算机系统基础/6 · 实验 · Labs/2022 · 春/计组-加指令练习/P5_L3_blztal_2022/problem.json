@@ -1,0 +1,26 @@
+{
+  "Id": 1047,
+  "Name": "P5_L3_blztal_2022",
+  "Description": "# Branch if Less Than Zero by Times and Link 小于零时按倍数跳转并链接\n\n<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">\n                31\n            </span>\n            <span style=\"float: right;\">\n                26\n            </span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">\n                25\n            </span>\n            <span style=\"float: right;\">\n                21\n            </span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">\n                20\n            </span>\n            <span style=\"float: right;\">\n                16\n            </span>\n        </td>\n        <td id=\"td-imm-top\">\n            <span style=\"float: left;\">\n                15\n            </span>\n            <span style=\"float: right;\">\n                0\n            </span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            blztal\n            <br />\n            100111\n        </td>\n        <td id=\"td-rs\">\n            rs\n        </td>\n        <td id=\"td-rt\">\n            rt\n        </td>\n        <td id=\"td-imm\">\n            offset\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-imm-bottom\">\n            16\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                blztal rs, rt, offset\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                当 GPR[rs] 小于 0 时，从 PC+4 的基础上跳转到立即数乘 2<sup>GPR[rt]<sub>1...0</sub></sup> 条指令之后，如果需要跳转，则也需要链接；如果不需要跳转，则不需要链接（详细以操作为准）。\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                I:\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                target_offset ← sign_extend(offset||0<sup>(2+GPR[rt]<sub>1...0</sub>)</sup>)\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                Condition ← GPR[rs] &lt; 0\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                If condition then\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">\n                GPR[31] ← PC + 8\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                endif\n            </p>\n            <p id=\"p-code\">\n                I+1:\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                If condition then\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">\n                PC ← PC + target_offset\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                endif\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                blztal $t0, $t1, 1\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "blztal.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

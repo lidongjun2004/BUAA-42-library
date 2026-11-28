@@ -1,0 +1,26 @@
+{
+  "Id": 1046,
+  "Name": "P5_L2_bonall_2022",
+  "Description": "# Branch if Opposite Number and Link Likely 相反数时跳转并链接\n\n<table style=\"border-collapse:collapse; width: 500pt;\">\n    <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n            编码\n        </td>\n        <td id=\"td-opcode-top\">\n            <span style=\"float: left;\">\n                31\n            </span>\n            <span style=\"float: right;\">\n                26\n            </span>\n        </td>\n        <td id=\"td-rs-top\">\n            <span style=\"float: left;\">\n                25\n            </span>\n            <span style=\"float: right;\">\n                21\n            </span>\n        </td>\n        <td id=\"td-rt-top\">\n            <span style=\"float: left;\">\n                20\n            </span>\n            <span style=\"float: right;\">\n                16\n            </span>\n        </td>\n        <td id=\"td-imm-top\">\n            <span style=\"float: left;\">\n                15\n            </span>\n            <span style=\"float: right;\">\n                0\n            </span>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode\">\n            bonall\n            <br />\n            011001\n        </td>\n        <td id=\"td-rs\">\n            rs\n        </td>\n        <td id=\"td-rt\">\n            rt\n        </td>\n        <td id=\"td-imm\">\n            offset\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-opcode-bottom\">\n            6\n        </td>\n        <td id=\"td-rs-bottom\">\n            5\n        </td>\n        <td id=\"td-rt-bottom\">\n            5\n        </td>\n        <td id=\"td-imm-bottom\">\n            16\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            格式\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                bonall rs, rt, offset\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            描述\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                链接，在 GPR[rs] 与 GPR[rt] 互为相反数时跳转，跳转时执行延迟槽指令，否则清空延迟槽\n            </p>\n            <p id=\"p-code\">\n               （Hint：32'h8000_0000 与 32'h8000_0000 <b>不</b>互为相反数）\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            操作\n        </td>\n        <td colspan=\"6\">\n            <p id=\"p-code\">\n                I:\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                target_offset ← sign_extend(offset||0<sup>2</sup>)\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                Condition ← GPR[rs] + GPR[rt] = 0<sup>32</sup>\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                GPR[31] ← PC + 8\n            </p>\n            <p id=\"p-code\">\n                I+1:\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                If condition then\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">\n                PC ← PC + target_offset\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                else\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 4em\">\n                NullifyCurrentInstruction()\n            </p>\n            <p id=\"p-code\" style=\"text-indent: 2em\">\n                endif\n            </p>\n        </td>\n    </tr>\n    <tr>\n        <td id=\"td-head\">\n            示例\n        </td>\n        <td colspan=\"4\">\n            <p id=\"p-code\">\n                bonall $t0, $t1, label\n            </p>\n        </td>\n    </tr>\n</table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "bonall.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}

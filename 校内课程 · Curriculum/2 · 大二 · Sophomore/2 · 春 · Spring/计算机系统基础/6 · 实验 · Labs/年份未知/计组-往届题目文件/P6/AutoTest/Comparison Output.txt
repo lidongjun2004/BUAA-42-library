@@ -1,0 +1,21 @@
+Total Cases: 20, Right Cases: 20
+Testcase  0: Accepted
+Testcase  1: Accepted
+Testcase  2: Accepted
+Testcase  3: Accepted
+Testcase  4: Accepted
+Testcase  5: Accepted
+Testcase  6: Accepted
+Testcase  7: Accepted
+Testcase  8: Accepted
+Testcase  9: Accepted
+Testcase 10: Accepted
+Testcase 11: Accepted
+Testcase 12: Accepted
+Testcase 13: Accepted
+Testcase 14: Accepted
+Testcase 15: Accepted
+Testcase 16: Accepted
+Testcase 17: Accepted
+Testcase 18: Accepted
+Testcase 19: Accepted

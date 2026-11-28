@@ -1,0 +1,3 @@
+# 使用课程镜像中预装的MindSpore 2.0或2.2及其配套NumPy。
+# 无需重新安装或升级MindSpore。Notebook使用同一Python环境。
+numpy>=1.21,<2.0

@@ -1,0 +1,8 @@
+{
+    "num_samples_neither": 105,
+    "ADE_route_neither": 0.04277339854007171,
+    "FDE_route_neither": 0.13223327421296935,
+    "num_samples_all": 105,
+    "ADE_route_all": 0.04277339854007171,
+    "FDE_route_all": 0.13223327421296935
+}

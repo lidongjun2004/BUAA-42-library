@@ -1,0 +1,11 @@
+=== Training Log ===
+[2025-12-29 23:42:46] Epoch 1/10 | Loss: 0.4395 | Train Acc: 86.65% | Test Acc: 94.82% | Time: 65.9s
+[2025-12-29 23:43:09] Epoch 2/10 | Loss: 0.1486 | Train Acc: 95.48% | Test Acc: 96.13% | Time: 23.0s
+[2025-12-29 23:43:50] Epoch 3/10 | Loss: 0.1083 | Train Acc: 96.70% | Test Acc: 96.53% | Time: 40.6s
+[2025-12-29 23:44:36] Epoch 4/10 | Loss: 0.0841 | Train Acc: 97.39% | Test Acc: 95.80% | Time: 46.4s
+[2025-12-29 23:44:55] Epoch 5/10 | Loss: 0.0740 | Train Acc: 97.67% | Test Acc: 97.12% | Time: 18.6s
+[2025-12-29 23:45:13] Epoch 6/10 | Loss: 0.0627 | Train Acc: 98.02% | Test Acc: 97.25% | Time: 18.5s
+[2025-12-29 23:45:32] Epoch 7/10 | Loss: 0.0551 | Train Acc: 98.26% | Test Acc: 97.33% | Time: 19.0s
+[2025-12-29 23:45:51] Epoch 8/10 | Loss: 0.0528 | Train Acc: 98.35% | Test Acc: 97.03% | Time: 18.3s
+[2025-12-29 23:46:19] Epoch 9/10 | Loss: 0.0446 | Train Acc: 98.60% | Test Acc: 97.44% | Time: 28.3s
+[2025-12-29 23:46:37] Epoch 10/10 | Loss: 0.0394 | Train Acc: 98.75% | Test Acc: 97.36% | Time: 17.8s

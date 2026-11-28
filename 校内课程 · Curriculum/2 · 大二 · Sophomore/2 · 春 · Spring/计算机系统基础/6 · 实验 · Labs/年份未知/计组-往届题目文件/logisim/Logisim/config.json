@@ -1,0 +1,6 @@
+{
+    "java_path": "C:\\Program Files\\Java\\jdk-22\\bin\\java.exe",
+    "circ_file": "Single_Cycle_CPU.circ",
+    "mips_paths": "MIPS",
+    "logisim_path": "logisim.jar"
+}

@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    11:22:47 11/18/2021 
+// Design Name: 
+// Module Name:    DM 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module BuildDM(
+    input clk,
+    input reset,
+	 input MemWrite,
+    input [11:0] Addr,
+	 input [31:0] ALURes,
+	 input [31:0] PC,
+    input [31:0] DataIn,
+    output [31:0] DataOut
+    );
+
+	reg [31:0] DM [3071:0];
+	integer i;
+	
+	initial
+	begin
+		for(i = 0; i < 3072; i = i + 1)
+		begin
+			DM[i] <= 32'h0;
+		end
+	end
+	
+	always @(posedge clk)
+	begin
+		if(reset == 1)
+		begin
+			for(i = 0; i < 3072; i = i + 1)
+			begin
+				DM[i] <= 32'h0;
+			end
+		end
+		else if(MemWrite == 1)
+		begin
+			DM[Addr] <= DataIn;
+			$display("%d@%h: *%h <= %h", $time, PC, ALURes, DataIn);
+		end
+	end
+	
+	assign DataOut = DM[Addr];
+endmodule

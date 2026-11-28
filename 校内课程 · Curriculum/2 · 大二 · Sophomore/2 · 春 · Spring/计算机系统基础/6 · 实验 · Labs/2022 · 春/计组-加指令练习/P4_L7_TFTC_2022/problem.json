@@ -1,0 +1,26 @@
+{
+  "Id": 988,
+  "Name": "P4_L7_TFTC_2022",
+  "Description": "<table style=\"border-collapse:collapse; width: 500pt;\">\n      <tr>\n        <td id=\"td-head\" rowspan=\"3\">\n                编码\n            </td>\n        <td id=\"td-opcode-top\">\n          <span style=\"float: left;\">31</span>\n          <span style=\"float: right;\">26</span>\n        </td>\n        <td id=\"td-rs-top\">\n          <span style=\"float: left;\">25</span>\n          <span style=\"float: right;\">21</span>\n        </td>\n        <td id=\"td-rt-top\">\n          <span style=\"float: left;\">20</span>\n          <span style=\"float: right;\">16</span>\n        </td>\n        <td id=\"td-rd-top\">\n          <span style=\"float: left;\">15</span>\n          <span style=\"float: right;\">11</span>\n        </td>\n        <td id=\"td-shamt-top\">\n          <span style=\"float: left;\">10</span>\n          <span style=\"float: right;\">6</span>\n        </td>\n        <td id=\"td-func-top\">\n          <span style=\"float: left;\">5</span>\n          <span style=\"float: right;\">0</span>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode\">\n                special<br/>\n                000000\n            </td>\n        <td id=\"td-rs\">rs</td>\n        <td id=\"td-rt\">00000</td>\n        <td id=\"td-rd\">rd</td>\n        <td id=\"td-shamt\">00000</td>\n        <td id=\"td-func\">\n              TFTC<br/>011101\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-opcode-bottom\">\n                6\n            </td>\n        <td id=\"td-rs-bottom\">\n                5\n            </td>\n        <td id=\"td-rt-bottom\">\n                5\n            </td>\n        <td id=\"td-rd-bottom\">\n                5\n            </td>\n        <td id=\"td-shamt-bottom\">\n                5\n            </td>\n        <td id=\"td-func-bottom\">\n                6\n            </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                格式\n            </td>\n        <td colspan=\"6\">\n          <p id=\"p-code\">\n                    tftc rd, rs\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                描述\n            </td>\n        <td colspan=\"6\">\n          <p id=\"p-text\">\n                GPR[rs]是用原码表示的32位有符号数，把它转换成补码之后存入GPR[rd]中\n              </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                操作\n            </td>\n        <td colspan=\"6\">\n          <p id=\"p-code\">def:</p>\n          <p id=\"p-code\" style=\"text-indent: 1em\">f(x): 将 x 由原码形式转换为补码形式</p>\n          <p id=\"p-code\">GPR[rd] ← f(GPR[rs])</p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                示例\n            </td>\n        <td colspan=\"6\">\n          <p id=\"p-code\">\n                    tftc $t1, $t2\n                </p>\n        </td>\n      </tr>\n      <tr>\n        <td id=\"td-head\">\n                其他\n            </td>\n        <td colspan=\"6\">\n          <p id=\"p-text\">\n                    GPR[rs]为+0或-0时，转换成补码后都应该为0\n                </p>\n        </td>\n      </tr>\n    </table>",
+  "Type": 0,
+  "LastSubmissionId": null,
+  "Choices": null,
+  "BlankCount": 0,
+  "ToolChain": [
+    "ise",
+    "vcs"
+  ],
+  "ExtraFileName": "tftc.class",
+  "JudgePermission": {
+    "CanSee": true,
+    "CanSubmit": true,
+    "IsDummy": false,
+    "CantSeeReason": "",
+    "CantSubmitReason": "",
+    "CantSubmitReasonId": 0,
+    "MaxSubmissionCount": null,
+    "CurrentSubmissionCount": 0,
+    "SubmissionInterval": 180,
+    "CoolDownTime": null
+  }
+}
